@@ -104,16 +104,6 @@
             <artifactId>commons-collections</artifactId>
             <version>3.2.1</version>
         </dependency>
-        <dependency>
-            <groupId>indri</groupId>
-            <artifactId>indri</artifactId>
-            <version>0.1</version>
-        </dependency>
-        <dependency>
-            <groupId>edu.gslis</groupId>
-            <artifactId>ir-utils</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>	
                 <dependency>
             <groupId>com.google.code.gson</groupId>
             <artifactId>gson</artifactId>
