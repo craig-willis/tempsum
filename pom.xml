@@ -13,7 +13,33 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
-
+<distributionManagement>
+		<repository>
+			<id>nema-dev.lis.illinois.edu</id>
+			<name>nema-dev.lis.illinois.edu-releases</name>
+			<url>http://nema-dev.lis.illinois.edu/artifactory//ir-libs</url>
+		</repository>
+		<snapshotRepository>
+			<id>nema-dev.lis.illinois.edu</id>
+			<name>nema-dev.lis.illinois.edu-snapshots</name>
+			<url>http://nema-dev.lis.illinois.edu/artifactory//ir-libs</url>
+		</snapshotRepository>
+	</distributionManagement>
+	<repositories>
+		<repository>
+			<name>ir-libs</name>
+			<id>ir-libs</id>
+			<url>http://nema-dev.lis.illinois.edu/artifactory/ir-libs/</url>
+			<snapshots>
+				<enabled>true</enabled>
+				<updatePolicy>never</updatePolicy>
+			</snapshots>
+			<releases>
+				<enabled>true</enabled>
+				<updatePolicy>never</updatePolicy>
+			</releases>
+		</repository>
+	</repositories>
   <build>
     <plugins>
       <plugin>
@@ -94,6 +120,16 @@
       <artifactId>json-simple</artifactId>
       <version>1.1.1</version>
     </dependency>
+    <dependency>
+		<groupId>indri</groupId>
+		<artifactId>indri</artifactId>
+		<version>0.1</version>
+	</dependency>
+	<dependency>
+		<groupId>edu.gslis</groupId>
+		<artifactId>ir-utils</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</dependency>
     <dependency>
 	  <groupId>joda-time</groupId>
 	  <artifactId>joda-time</artifactId>

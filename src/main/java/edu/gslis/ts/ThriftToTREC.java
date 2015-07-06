@@ -56,12 +56,18 @@ public class ThriftToTREC
 	    		File infile = new File(in);
 	    		if (infile.isDirectory()) {
 	    			for (File file: infile.listFiles()) {
-	    				f.filter(file, new File(outfile), sentenceParser);
+	    				if (file.isDirectory()) {
+	    					for (File filefile : file.listFiles()) {
+	    						f.filter(filefile, new File(outfile), sentenceParser);
+	    					}
+	    				} else {
+	    					f.filter(file, new File(outfile), sentenceParser);
+	    				}
 	    			}
 	    		}
 	    		else
 	    			f.filter(infile, new File(outfile), sentenceParser);
-	    	} 
+	    	}
 	    
     	} catch (Exception e) {
     		e.printStackTrace();
