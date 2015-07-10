@@ -51,7 +51,6 @@ public class DumpThriftData
     		CommandLine cmd = parser.parse( options, args);
         	
         	String in = cmd.getOptionValue("i");
-        	String outfile = cmd.getOptionValue("o");
         	String sentenceParser = cmd.getOptionValue("p");
         	String query = cmd.getOptionValue("q");
         	String externalCollection = cmd.getOptionValue("e");
@@ -68,25 +67,25 @@ public class DumpThriftData
         	// Setup the filter
 	    	DumpThriftData f = new DumpThriftData();
 	    	
-	    	if (in != null && outfile != null) {
+	    	if (in != null) {
 	    		File infile = new File(in);
 	    		if (infile.isDirectory()) {
 	    			for (File file: infile.listFiles()) {
 	    				if (file.isDirectory()) {
 	    					for (File filefile : file.listFiles()) {
-	    						System.out.println(filefile.getAbsolutePath());
-	    						f.filter(filefile, new File(outfile), sentenceParser, gquery, bgstats);
+	    						System.err.println(filefile.getAbsolutePath());
+	    						f.filter(filefile, sentenceParser, gquery, bgstats);
 	    					}
 	    				} else {
-	    					System.out.println(file.getAbsolutePath());
-	    					f.filter(file, new File(outfile), sentenceParser, gquery, bgstats);
+	    					System.err.println(file.getAbsolutePath());
+	    					f.filter(file, sentenceParser, gquery, bgstats);
 	    				}
 	    			}
 	    		}
 	    		else
-	    			System.out.println(infile.getAbsolutePath());
-	    			f.filter(infile, new File(outfile), sentenceParser, gquery, bgstats);
-	    	} 
+	    			System.err.println(infile.getAbsolutePath());
+	    			f.filter(infile, sentenceParser, gquery, bgstats);
+	    	}
 	    
     	} catch (Exception e) {
     		e.printStackTrace();
@@ -97,7 +96,6 @@ public class DumpThriftData
 	{
 		Options options = new Options();
 		options.addOption("i", true, "Input thrift file");
-		options.addOption("o", true, "Output file");
 		options.addOption("p", true, "Parser (lingpipe or serif)");
 		options.addOption("q", true, "Query");
 		options.addOption("e", true, "External Collection");
@@ -107,7 +105,7 @@ public class DumpThriftData
 	/**
 	 * @param thriftFile
 	 */
-	public void filter(File infile, File outfile, String parser, GQuery gquery, CollectionStats bgstats) 
+	public void filter(File infile, String parser, GQuery gquery, CollectionStats bgstats) 
 	{
 		try
 		{	
@@ -117,17 +115,16 @@ public class DumpThriftData
 				in = new GZIPInputStream(new FileInputStream(infile));
 			else if (infile.getName().endsWith("xz"))
 			    in = new XZInputStream(new FileInputStream(infile));
-			else
+			else {
+				System.err.println("Regular FileInputStream");
 				in = new FileInputStream(infile);
+			}
 			
 	        TTransport inTransport = 
 	        	new TIOStreamTransport(new BufferedInputStream(in));
 	        TBinaryProtocol inProtocol = new TBinaryProtocol(inTransport);
 	        inTransport.open();
 	        
-            OutputStreamWriter out = 
-                	new OutputStreamWriter(new FileOutputStream(outfile, false), 
-                			"UTF-8");
             try 
 	        {
                 // Run through items in the thrift file
@@ -136,6 +133,7 @@ public class DumpThriftData
 	                final StreamItem item = new StreamItem();
 	                item.read(inProtocol);
 	                if (item.body == null || item.body.clean_visible == null) {
+	                	System.err.println("Body is null.");
 	                	continue;
 	                }
 	                
@@ -183,7 +181,7 @@ public class DumpThriftData
 	                           sentenceHit.setFeatureVector(sentenceVector);
 	                           sentenceHit.setLength(sentenceVector.getLength());
 	                           double score = scorer.score(sentenceHit);
-	                           
+
 	                           sentenceScores.add(score);
 	                           sentences.add(sentence);
 	                           
@@ -196,25 +194,29 @@ public class DumpThriftData
                         SearchHit docHit = new SearchHit();
                         docHit.setFeatureVector(new FeatureVector(sentencesText, null));
                         double docscore = scorer.score(docHit);
-                        
                         for (int i = 0; i < sentenceScores.size(); i++) {
-                        	out.write(source+"\t"+epochTime+"\t"+streamId+"\t"+docscore+"\t"+i+"\t"+sentenceScores.get(i)+"\t"+sentences.get(i)+"\n");
+                        	System.out.println(infile.getAbsolutePath()+"\t"+source+"\t"+epochTime+"\t"+streamId+"\t"+docscore+"\t"+i+"\t"+sentenceScores.get(i)+"\t"+sentences.get(i));
                         }
+	                } else if (sentenceParser == null) {
+	                	System.err.println("Sentence parser null");
+	                } else if (sentenceParser.size() == 0) {
+	                	System.err.println("Sentence length 0");
+	                } else {
+	                	System.err.println("Other sentence error.");
 	                }
 	                
 	            }   
 	        } catch (TTransportException te) {
 	            if (te.getType() == TTransportException.END_OF_FILE) {
-	            	System.err.println("EOF Error: "+infile.getAbsolutePath());
 	            } else {
 	                throw te;
 	            }
 	        }
+            
 	        inTransport.close();
-	        out.close();
 	        
 	    } catch (Exception e) {
-	    	System.out.println("Error processing " + infile.getAbsolutePath()+ " " + infile.getName());
+	    	System.err.println("Error processing " + infile.getAbsolutePath()+ " " + infile.getName());
 	        e.printStackTrace();
 	    }
 	}
