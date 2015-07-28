@@ -21,9 +21,7 @@ import edu.gslis.streamcorpus.StreamItemWritable;
 import edu.gslis.streamcorpus.ThriftFileInputFormat;
 
 /**
- * Process the streamcorpus. Score each streamitem with respect to the queries.
- * Filter streamcorpus, creating an Hbase entry for the streamitem for the
- * top-scoring query.
+ * Simple word count example using thrift files.
  */
 public class ThriftWordCount extends TSBase implements Tool {
 
@@ -55,7 +53,8 @@ public class ThriftWordCount extends TSBase implements Tool {
     public static class ThriftWordCountReducer extends Reducer<Text, IntWritable, Text, IntWritable>  {
 
         IntWritable sum = new IntWritable();
-        public void reduce(Text key, Iterable<IntWritable> values, Context context) throws IOException, InterruptedException {
+        public void reduce(Text key, Iterable<IntWritable> values, Context context) 
+                throws IOException, InterruptedException {
                 int i = 0;
                 for (IntWritable val : values) {
                     i += val.get();

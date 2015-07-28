@@ -10,6 +10,7 @@ import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
+import org.apache.hadoop.mapred.MultiFileInputFormat;
 import org.apache.hadoop.mapreduce.Job;
 import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.Reducer;
@@ -21,7 +22,7 @@ import org.apache.hadoop.util.ToolRunner;
 import org.apache.log4j.Logger;
 
 import edu.gslis.streamcorpus.StreamItemWritable;
-import edu.gslis.streamcorpus.ThriftFileInputFormat2;
+import edu.gslis.streamcorpus.ThriftFileInputFormat;
 import edu.gslis.textrepresentation.FeatureVector;
 
 /**
@@ -52,7 +53,7 @@ public class ThriftDumper extends TSBase implements Tool {
         public void map(Text key, StreamItemWritable item, Context context)
                 throws IOException, InterruptedException 
         {
-            System.out.println(item.getStream_id());
+            //System.out.println(item.getStream_id());
 
             if (item.getBody() == null)
                 return;
@@ -132,6 +133,8 @@ public class ThriftDumper extends TSBase implements Tool {
         }
      }
 
+    // http://www.ibm.com/developerworks/library/ba-mapreduce-biginsights-analysis/
+    // http://www.ibm.com/developerworks/library/bd-hadoopcombine/
     public int run(String[] args) throws Exception
     {
         String inputPath = args[0];
@@ -142,14 +145,13 @@ public class ThriftDumper extends TSBase implements Tool {
         Configuration config = getConf();
         Job job = Job.getInstance(config);
         job.setJarByClass(ThriftDumper.class);
-        job.setInputFormatClass(ThriftFileInputFormat2.class);
+        job.setInputFormatClass(ThriftFileInputFormat.class);
         
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(IntWritable.class);
         job.setReducerClass(ThriftDumperReducer.class);
 
         job.setOutputFormatClass(TextOutputFormat.class);
-
 
         FileInputFormat.addInputPath(job, new Path(inputPath));
         FileInputFormat.setInputDirRecursive(job, true);

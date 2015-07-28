@@ -1,4 +1,4 @@
-package edu.gslis.ts.hadoop;
+package edu.gslis.streamcorpus;
 
 import java.io.IOException;
 
@@ -16,9 +16,17 @@ import org.apache.thrift.transport.TIOStreamTransport;
 import org.apache.thrift.transport.TTransportException;
 import org.tukaani.xz.XZInputStream;
 
-import edu.gslis.streamcorpus.StreamItemWritable;
 
-public class MultiFileThriftRecordReader extends
+/**
+ * Combinable record reader for thrift files. Since the thrift/chunk
+ * files used in the KBA streamcorpus tend to be smaller than the 
+ * default HDFS block size, we use the CombineFileSplot paradigm
+ * to combine multiple compressed thrift files and reduce the number
+ * of mappers required for job execution.
+ * 
+ * @author cwillis
+ */
+public class ThriftRecordReader extends
         RecordReader<Text, StreamItemWritable> 
 {
     private long startOffset;
@@ -31,7 +39,7 @@ public class MultiFileThriftRecordReader extends
     private TProtocol tp;
     private FSDataInputStream in;
 
-    public MultiFileThriftRecordReader(CombineFileSplit split,
+    public ThriftRecordReader(CombineFileSplit split,
             TaskAttemptContext context, Integer index) throws IOException {
         this.path = split.getPath(index);
         fs = this.path.getFileSystem(context.getConfiguration());
@@ -39,8 +47,8 @@ public class MultiFileThriftRecordReader extends
         this.end = startOffset + split.getLength(index);
         this.pos = startOffset;
 
-        System.out.println(index +"/" + split.getNumPaths() + ": " + path.toString() 
-                + " start:" + startOffset + ", end=" + end + ", len=" + split.getLength(index));
+//        System.out.println(index +"/" + split.getNumPaths() + ": " + path.toString() 
+//                + " start:" + startOffset + ", end=" + end + ", len=" + split.getLength(index));
         
         in = fs.open(path);
 
@@ -90,11 +98,11 @@ public class MultiFileThriftRecordReader extends
         if (in.available() > 0) {
 
             try {
-                int available = in.available();
+//                int available = in.available();
                 value.read(tp);
                 pos = end - in.available() - startOffset;
                 
-                System.out.println(value.getStream_id() + ": " + available);
+//                System.out.println(value.getStream_id() + ": " + available);
 
             } catch (TTransportException tte) {
                 if (tte.getType() != TTransportException.END_OF_FILE) 
