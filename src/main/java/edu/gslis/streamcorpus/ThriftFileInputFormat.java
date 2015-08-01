@@ -21,9 +21,10 @@ public class ThriftFileInputFormat extends
     public ThriftFileInputFormat() 
     {
         super();
-        setMaxSplitSize(268435456); // 256 MB
-//      setMaxSplitSize(536870912); // 512 MB, default block size on hadoop
-//      setMaxSplitSize(134217728); // 128 MB, default block size on hadoop
+//        setMaxSplitSize(1073741824); // 1024 MB
+//        setMaxSplitSize(268435456); // 256 MB
+//      setMaxSplitSize(536870912); // 512 MB,
+      setMaxSplitSize(134217728); // 128 MB, default block size on hadoop
     }
 
     @Override
