@@ -2,17 +2,22 @@ package edu.gslis.ts.hadoop;
 
 import java.io.IOException;
 import java.net.URI;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.TreeMap;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.FileSystem;
 import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.hbase.client.HTable;
+import org.apache.hadoop.hbase.HBaseConfiguration;
+import org.apache.hadoop.hbase.TableName;
+import org.apache.hadoop.hbase.client.Connection;
+import org.apache.hadoop.hbase.client.ConnectionFactory;
 import org.apache.hadoop.hbase.client.Put;
 import org.apache.hadoop.hbase.io.ImmutableBytesWritable;
 import org.apache.hadoop.hbase.mapreduce.HFileOutputFormat2;
-import org.apache.hadoop.hbase.mapreduce.LoadIncrementalHFiles;
 import org.apache.hadoop.hbase.util.Bytes;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
@@ -32,9 +37,9 @@ import edu.gslis.streamcorpus.ThriftFileInputFormat;
 import edu.gslis.textrepresentation.FeatureVector;
 
 /**
- * Process the streamcorpus. Score each streamitem with respect to the queries.
- * Filter streamcorpus, creating an Hbase entry for the streamitem for the
- * top-scoring query.
+ * Process the streamcorpus. Score each streamitem with respect to the input 
+ * queries. Craete an HBase entry for each streamitem using the top-scoring
+ * query.
  */
 public class ThriftBulkLoader extends TSBase implements Tool 
 {
@@ -48,8 +53,10 @@ public class ThriftBulkLoader extends TSBase implements Tool
         
         Map<Integer, FeatureVector> queries = new TreeMap<Integer, FeatureVector>();
         Map<String, Double> vocab = new TreeMap<String, Double>();
+        Map<String, Integer> dateBins = new HashMap<String, Integer>();
         TSerializer serializer = new TSerializer(new TBinaryProtocol.Factory());
         ImmutableBytesWritable hbaseTable = new ImmutableBytesWritable();
+        DateFormat df = new SimpleDateFormat("yyyy-MM-dd-HH");
         Put put;
         DateTimeFormatter dtf = ISODateTimeFormat.dateTime();
         String streamid;
@@ -63,7 +70,9 @@ public class ThriftBulkLoader extends TSBase implements Tool
         String dateTime;
         long epoch;
         String cleanVisible;
-        
+        String dateStr;
+        String bin;
+        String queryStr;
         public void map(Text key, StreamItemWritable item, Context context)
                 throws IOException, InterruptedException 
         {
@@ -73,7 +82,7 @@ public class ThriftBulkLoader extends TSBase implements Tool
             
             streamid = item.getStream_id();
 
-            System.out.println("Processing item " + streamid);
+//            System.out.println("Processing item " + streamid);
 
             docText = item.getBody().getClean_visible();
             if (docText != null && docText.length() > 0) 
@@ -98,20 +107,23 @@ public class ThriftBulkLoader extends TSBase implements Tool
                 {
                     dateTime = item.stream_time.zulu_timestamp;
                     epoch = dtf.parseMillis(dateTime);
+                    dateStr = df.format(epoch);
+                    bin = String.format("%04d", dateBins.get(dateStr));
                 }
     
-    
-                // Let's use a rowkey that includes the queryid
-                cleanVisible = item.getBody().clean_visible;
-                //System.out.println(streamid + "," + queryId);
+                queryStr = String.format("%02d", queryId);
+                
+                String rowid = queryStr + bin + "." + streamid;
+//                String rowid = DigestUtils.md5Hex(queryStr + bin + "." + streamid);                
+
                 try {
-                    put = new Put(Bytes.toBytes(queryId + "-" + streamid));
-                    put.add(Bytes.toBytes("md"), Bytes.toBytes("query"), Bytes.toBytes(queryId));
-                    put.add(Bytes.toBytes("md"), Bytes.toBytes("epoch"), Bytes.toBytes(epoch));
-                    //put.add(Bytes.toBytes("si"), Bytes.toBytes("streamitem"), Bytes.toBytes(cleanVisible));
-                    //put.add(Bytes.toBytes("si"), Bytes.toBytes("streamitem"), Bytes.toBytes(streamid));
-                    put.add(Bytes.toBytes("si"), Bytes.toBytes("streamitem"), serializer.serialize(item));
-                    context.write(hbaseTable, put);  
+                    put = new Put(Bytes.toBytes(rowid));
+                    put.addColumn(Bytes.toBytes("md"), Bytes.toBytes("query"), Bytes.toBytes(queryId));
+                    put.addColumn(Bytes.toBytes("md"), Bytes.toBytes("epoch"), Bytes.toBytes(epoch));
+                    put.addColumn(Bytes.toBytes("si"), Bytes.toBytes("streamitem"), serializer.serialize(item));
+                    //put.addColumn(Bytes.toBytes("si"), Bytes.toBytes("streamitem"), Bytes.toBytes(streamid));
+                    ImmutableBytesWritable hkey = new ImmutableBytesWritable(Bytes.toBytes(rowid));
+                    context.write(hkey, put);  
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -140,6 +152,8 @@ public class ThriftBulkLoader extends TSBase implements Tool
                             queries = readEvents(file.toString(), fs);
                         if (file.toString().contains("vocab"))
                             vocab = readVocab(file.toString(), fs);
+                        if (file.toString().contains("date"))
+                            dateBins = readDateBins(file.toString(), fs);
                     }
                 } else {
                     logger.error("Can't load cache files. Trying local cache");
@@ -172,11 +186,11 @@ public class ThriftBulkLoader extends TSBase implements Tool
         String outputPath = args[2];
         Path topicsFile = new Path(args[3]);
         Path vocabFile = new Path(args[4]);
+        Path dateBinFile = new Path(args[5]);
 
-               
-        // 1329868800 - 1355097600, 98
         Configuration config = getConf();
         config.set("hbase.table.name", tableName);
+        HBaseConfiguration.addHbaseResources(config);
         
         Job job = Job.getInstance(config);     
         job.setJarByClass(ThriftBulkLoader.class);       
@@ -194,21 +208,30 @@ public class ThriftBulkLoader extends TSBase implements Tool
         
         job.addCacheFile(topicsFile.toUri());
         job.addCacheFile(vocabFile.toUri());
+        job.addCacheFile(dateBinFile.toUri());
         
-
-        HFileOutputFormat2.configureIncrementalLoad(job, new HTable(config,tableName));      
+        //RegionLocator regionLocator = conn.getRegionLocator(tableName);
+        //HFileOutputFormat2.configureIncrementalLoad(job, new HTable(config,tableName));
+        
+        Connection con = ConnectionFactory.createConnection(config);
+        TableName htableName = TableName.valueOf(tableName);
+        HFileOutputFormat2.configureIncrementalLoad(job, con.getTable(htableName), con.getRegionLocator(htableName));
+        
         job.waitForCompletion(true);        
         if (job.isSuccessful()) {
-            // Do bulkload
+            // Couldn't find a better way to do this. The LoadIncrementalHFiles
+            // seems to want 777 permissions on the output directory.
             try {
                 Runtime rt = Runtime.getRuntime();
-                rt.exec("hadoop fs -chmod -R     777 " + output);
+                rt.exec("hadoop fs -chmod -R 777 " + output);
             } catch (Exception e) {
                 e.printStackTrace();
             }
+            /*
             LoadIncrementalHFiles loader = new LoadIncrementalHFiles(config);
             HTable htable = new HTable(config, tableName);
             loader.doBulkLoad(new Path(outputPath), htable);
+            */
 
         } else {
             throw new IOException("error with job");
@@ -250,6 +273,7 @@ public class ThriftBulkLoader extends TSBase implements Tool
     }
 
     public static void main(String[] args) throws Exception {
+                
         int res = ToolRunner.run(new Configuration(), new ThriftBulkLoader(), args);
         System.exit(res);
     }
