@@ -22,6 +22,32 @@ import edu.gslis.textrepresentation.FeatureVector;
 
 public class TSBase extends Configured 
 {
+    public static Map<String, Integer> readDateBins(String path, FileSystem fs) 
+    {
+        Map<String, Integer> dateBins = new TreeMap<String, Integer>();
+        try
+        {
+            BufferedReader br = null;
+            if (fs == null)  {
+                br = new BufferedReader(new FileReader(path));
+            } else {
+                DataInputStream dis = fs.open(new Path(path));
+                br = new BufferedReader(new InputStreamReader(dis));
+            }
+            String line;
+            while ((line = br.readLine()) != null) {
+                String[] fields = line.split(" ");
+                String date = fields[0];
+                int bin = Integer.parseInt(fields[1]);
+                dateBins.put(date, bin);                    
+            }
+            br.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return dateBins;
+    }
+
     public static Map<String, Double> readVocab(String path, FileSystem fs) {
         Map<String, Double> vocab = new TreeMap<String, Double>();
         try
