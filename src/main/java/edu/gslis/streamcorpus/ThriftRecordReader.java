@@ -1,3 +1,17 @@
+/*******************************************************************************
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ ******************************************************************************/
+
 package edu.gslis.streamcorpus;
 
 import java.io.IOException;
@@ -47,9 +61,6 @@ public class ThriftRecordReader extends
         this.end = startOffset + split.getLength(index);
         this.pos = startOffset;
 
-//        System.out.println(index +"/" + split.getNumPaths() + ": " + path.toString() 
-//                + " start:" + startOffset + ", end=" + end + ", len=" + split.getLength(index));
-        
         in = fs.open(path);
 
         if (path.toUri().toString().endsWith("xz"))
@@ -98,13 +109,11 @@ public class ThriftRecordReader extends
         if (in.available() > 0) {
 
             try {
-//                int available = in.available();
                 value.read(tp);
                 pos = end - in.available() - startOffset;
-                
-//                System.out.println(value.getStream_id() + ": " + available);
 
             } catch (TTransportException tte) {
+                // END_OF_FILE is used to indicate EOF and is not an exception.
                 if (tte.getType() != TTransportException.END_OF_FILE) 
                     tte.printStackTrace();
                 return false;

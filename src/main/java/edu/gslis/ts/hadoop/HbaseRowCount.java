@@ -11,60 +11,52 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  ******************************************************************************/
+
 package edu.gslis.ts.hadoop;
 
 import java.io.IOException;
-import java.util.StringTokenizer;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.hbase.HBaseConfiguration;
+import org.apache.hadoop.hbase.client.Result;
+import org.apache.hadoop.hbase.client.Scan;
+import org.apache.hadoop.hbase.io.ImmutableBytesWritable;
+import org.apache.hadoop.hbase.mapreduce.TableMapReduceUtil;
+import org.apache.hadoop.hbase.mapreduce.TableMapper;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
-import org.apache.hadoop.mapreduce.Mapper;
 import org.apache.hadoop.mapreduce.Reducer;
-import org.apache.hadoop.mapreduce.lib.input.FileInputFormat;
 import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 import org.apache.hadoop.mapreduce.lib.output.TextOutputFormat;
 import org.apache.hadoop.util.Tool;
 import org.apache.hadoop.util.ToolRunner;
 
-import edu.gslis.streamcorpus.StreamItemWritable;
-import edu.gslis.streamcorpus.ThriftFileInputFormat;
 
 /**
- * Simple word count example using ThriftFileInputFormat
+ * Read an HBase table containing serialized thrift entries, order by timestamp.
  */
-public class ThriftWordCount extends TSBase implements Tool {
+public class HbaseRowCount extends TSBase implements Tool {
 
-    public static class ThriftWordCountMapper extends
-            Mapper<Text, StreamItemWritable, Text, IntWritable> 
+
+    public static class HbaseCountTableMapper extends TableMapper<Text, IntWritable> 
     {
-        
+               
         private final static IntWritable one = new IntWritable(1);
-        private Text word = new Text();
-
-        public void map(Text key, StreamItemWritable item, Context context)
-                throws IOException, InterruptedException 
+        private Text key = new Text("all");
+        
+        public void map(ImmutableBytesWritable row, Result value, Context context) 
+                throws InterruptedException, IOException 
         {
-
-            if (item.getBody() == null)
-                return;
-
-            String docText = item.getBody().getClean_visible();
             
-            StringTokenizer itr = new StringTokenizer(docText);
-            while (itr.hasMoreTokens()) {
-                word.set(itr.nextToken());
-                context.write(word, one);
-            }
+            context.write(key, one);
         }
     }
     
-    
-    public static class ThriftWordCountReducer extends Reducer<Text, IntWritable, Text, IntWritable>  {
 
+    public static class HbaseCountReducer extends Reducer<Text, IntWritable, Text, IntWritable> 
+    {
         IntWritable sum = new IntWritable();
         public void reduce(Text key, Iterable<IntWritable> values, Context context) 
                 throws IOException, InterruptedException {
@@ -76,41 +68,50 @@ public class ThriftWordCount extends TSBase implements Tool {
                 sum.set(i);
                 context.write(key, sum);
         }
-     }
+    }
 
-    public int run(String[] args) throws Exception
+    public int run(String[] args) throws Exception 
     {
-        String inputPath = args[0];
+        String tableName = args[0];
         Path outputPath = new Path(args[1]);
-
+        
         Configuration config = HBaseConfiguration.create(getConf());
         Job job = Job.getInstance(config);
-        job.setJarByClass(ThriftWordCount.class);
-        job.setInputFormatClass(ThriftFileInputFormat.class);
+        job.setJarByClass(HbaseRowCount.class);
+        
+        Scan scan = new Scan();
+        scan.setCaching(500);
+        scan.setCacheBlocks(false);
+        
+        TableMapReduceUtil.initTableMapperJob(
+                tableName,
+                scan, 
+                HbaseCountTableMapper.class, 
+                Text.class, // mapper output key
+                IntWritable.class, // mapper output value
+                job
+        );
+        
+        job.setReducerClass(HbaseCountReducer.class);
+        
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(IntWritable.class);
 
-        job.setReducerClass(ThriftWordCountReducer.class);
-
         job.setOutputFormatClass(TextOutputFormat.class);
         
-        
-        FileInputFormat.addInputPath(job, new Path(inputPath));
-        FileInputFormat.setInputDirRecursive(job, true);
-        FileOutputFormat.setOutputPath(job, outputPath);     
-        job.setMapperClass(ThriftWordCountMapper.class);
+        FileOutputFormat.setOutputPath(job, outputPath);
 
         
         boolean b = job.waitForCompletion(true);
         if (!b) {
-            throw new IOException("error with job");
+            throw new IOException("error with job!");
         }
-
-        return 0;        
+        return 0;
     }
 
     public static void main(String[] args) throws Exception {
-        int res = ToolRunner.run(new Configuration(), new ThriftWordCount(), args);
+        int res = ToolRunner.run(new Configuration(), new HbaseRowCount(),
+                args);
         System.exit(res);
     }
 }

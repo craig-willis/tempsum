@@ -1,3 +1,17 @@
+/*******************************************************************************
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ ******************************************************************************/
+
 package edu.gslis.ts.hadoop;
 
 import java.io.BufferedReader;
@@ -19,6 +33,7 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
 import edu.gslis.textrepresentation.FeatureVector;
+import edu.gslis.utils.Stopper;
 
 public class TSBase extends Configured 
 {
@@ -48,6 +63,29 @@ public class TSBase extends Configured
         return dateBins;
     }
 
+    public static Stopper readStoplist(String path, FileSystem fs) {
+        Stopper stopper = new Stopper();
+        
+        try
+        {
+            BufferedReader br = null;
+            if (fs == null)  {
+                br = new BufferedReader(new FileReader(path));
+            } else {
+                DataInputStream dis = fs.open(new Path(path));
+                br = new BufferedReader(new InputStreamReader(dis));
+            }
+            String term;
+            while ((term = br.readLine()) != null) {
+                stopper.addStopword(term);
+            }
+            br.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return stopper;
+    }
+    
     public static Map<String, Double> readVocab(String path, FileSystem fs) {
         Map<String, Double> vocab = new TreeMap<String, Double>();
         try

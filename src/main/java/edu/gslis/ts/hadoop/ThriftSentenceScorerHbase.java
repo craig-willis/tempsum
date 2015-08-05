@@ -1,3 +1,17 @@
+/*******************************************************************************
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ ******************************************************************************/
+
 package edu.gslis.ts.hadoop;
 
 import java.io.IOException;
@@ -14,6 +28,8 @@ import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.hbase.client.Result;
 import org.apache.hadoop.hbase.client.Scan;
+import org.apache.hadoop.hbase.filter.Filter;
+import org.apache.hadoop.hbase.filter.PrefixFilter;
 import org.apache.hadoop.hbase.io.ImmutableBytesWritable;
 import org.apache.hadoop.hbase.mapreduce.TableMapReduceUtil;
 import org.apache.hadoop.hbase.mapreduce.TableMapper;
@@ -34,9 +50,9 @@ import edu.gslis.textrepresentation.FeatureVector;
 
 
 /**
- * Read an HBase table containing serialized thrift entries, order by timestamp.
+ * Read an HBase table containing serialized thrift entries
  */
-public class ThriftScorerHbase extends TSBase implements Tool {
+public class ThriftSentenceScorerHbase extends TSBase implements Tool {
 
 
     public static class ThriftTableMapper extends TableMapper<Text, Text> 
@@ -51,29 +67,36 @@ public class ThriftScorerHbase extends TSBase implements Tool {
         
         Text outputKey = new Text();
         Text outputValue = new Text();
+        int queryId;
+        long epoch;
+        String streamid;
+        StreamItemWritable item = new StreamItemWritable();
+        FeatureVector qv;
+        String source;
+        Map<String, List<Sentence>> parsers;
+        List<Sentence> sentenceParser;
         
         public void map(ImmutableBytesWritable row, Result value, Context context) 
                 throws InterruptedException, IOException 
         {
-            String streamid = Bytes.toString(row.get());
-            int queryId = Bytes.toInt(value.getValue(Bytes.toBytes("cf"), Bytes.toBytes("query")));
-            long epoch = Bytes.toLong(value.getValue(Bytes.toBytes("cf"), Bytes.toBytes("epoch")))/1000;
+            streamid = Bytes.toString(row.get());
+            queryId = Bytes.toInt(value.getValue(Bytes.toBytes("md"), Bytes.toBytes("query")));
+            epoch = Bytes.toLong(value.getValue(Bytes.toBytes("md"), Bytes.toBytes("epoch")))/1000;
             
             
-            StreamItemWritable item = new StreamItemWritable();
             try
             {
-                deserializer.deserialize(item, value.getValue(Bytes.toBytes("cf"), Bytes.toBytes("streamitem")));
+                deserializer.deserialize(item, value.getValue(Bytes.toBytes("si"), Bytes.toBytes("streamitem")));
             } catch (Exception e) {
                 e.printStackTrace();
             }
             
-            FeatureVector qv = queries.get(queryId);
+            qv = queries.get(queryId);
             
             //String text = item.getBody().getClean_visible();
-            String source = item.getSource();
-            Map<String, List<Sentence>> parsers = item.getBody().getSentences();
-            List<Sentence> sentenceParser = parsers.get("lingpipe");
+            source = item.getSource();
+            parsers = item.getBody().getSentences();
+            sentenceParser = parsers.get("lingpipe");
             
             List<Double> sentenceScores = new ArrayList<Double>();
             List<String> sentences = new ArrayList<String>();
@@ -83,9 +106,8 @@ public class ThriftScorerHbase extends TSBase implements Tool {
 
                 for (Sentence s: sentenceParser) {
                     try {
-                       List<Token> tokens = s.tokens;
                        String sentence = "";
-                       for (Token token: tokens) {
+                       for (Token token: s.tokens) {
                            String tok = token.token;
                            sentence += tok + " ";
                        }
@@ -260,35 +282,29 @@ public class ThriftScorerHbase extends TSBase implements Tool {
     public int run(String[] args) throws Exception 
     {
         String tableName = args[0];
-        //int queryId = Integer.parseInt(args[1]);
         Path topicsFile = new Path(args[1]);
         Path vocabFile = new Path(args[2]);
         Path outputPath = new Path(args[3]);
+        // String queryId = args[1];
         
-        // http://hbase.apache.org/0.94/book/mapreduce.example.html
         Configuration config = HBaseConfiguration.create(getConf());
         Job job = Job.getInstance(config);
-        job.setJarByClass(ThriftScorerHbase.class);
+        job.setJarByClass(ThriftSentenceScorerHbase.class);
         
         Scan scan = new Scan();
         scan.setCaching(500);
         scan.setCacheBlocks(false);
-        
         /*
-        Filter filter = new SingleColumnValueFilter(
-                Bytes.toBytes("cf"), Bytes.toBytes("query"),
-                CompareOp.EQUAL,
-                Bytes.toBytes(queryId)
-        );
-        scan.setFilter(filter);
+        Filter prefixFilter = new PrefixFilter(Bytes.toBytes(queryId));
+        scan.setFilter(prefixFilter);
         */
         
         TableMapReduceUtil.initTableMapperJob(
-                tableName,                  // input HBase table name
-                scan,                       // Scan instance to control CF and attribute selection
-                ThriftTableMapper.class,    // mapper
-                Text.class,                 // mapper output key
-                Text.class,                 // mapper output value
+                tableName,
+                scan, 
+                ThriftTableMapper.class, 
+                Text.class, // mapper output key
+                Text.class, // mapper output value
                 job
         );
         
@@ -306,7 +322,7 @@ public class ThriftScorerHbase extends TSBase implements Tool {
     }
 
     public static void main(String[] args) throws Exception {
-        int res = ToolRunner.run(new Configuration(), new ThriftScorerHbase(),
+        int res = ToolRunner.run(new Configuration(), new ThriftSentenceScorerHbase(),
                 args);
         System.exit(res);
     }

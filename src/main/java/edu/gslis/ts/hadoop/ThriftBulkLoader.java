@@ -1,3 +1,17 @@
+/*******************************************************************************
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ * 
+ *   http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ ******************************************************************************/
+
 package edu.gslis.ts.hadoop;
 
 import java.io.IOException;
@@ -38,8 +52,8 @@ import edu.gslis.textrepresentation.FeatureVector;
 
 /**
  * Process the streamcorpus. Score each streamitem with respect to the input 
- * queries. Craete an HBase entry for each streamitem using the top-scoring
- * query.
+ * queries. Create an HBase entry for each serialized streamitem using the 
+ * top-scoring query.
  */
 public class ThriftBulkLoader extends TSBase implements Tool 
 {
@@ -117,13 +131,19 @@ public class ThriftBulkLoader extends TSBase implements Tool
 //                String rowid = DigestUtils.md5Hex(queryStr + bin + "." + streamid);                
 
                 try {
-                    put = new Put(Bytes.toBytes(rowid));
-                    put.addColumn(Bytes.toBytes("md"), Bytes.toBytes("query"), Bytes.toBytes(queryId));
-                    put.addColumn(Bytes.toBytes("md"), Bytes.toBytes("epoch"), Bytes.toBytes(epoch));
-                    put.addColumn(Bytes.toBytes("si"), Bytes.toBytes("streamitem"), serializer.serialize(item));
-                    //put.addColumn(Bytes.toBytes("si"), Bytes.toBytes("streamitem"), Bytes.toBytes(streamid));
-                    ImmutableBytesWritable hkey = new ImmutableBytesWritable(Bytes.toBytes(rowid));
-                    context.write(hkey, put);  
+                    byte[] serialized = serializer.serialize(item);
+                    if (serialized.length < 64*1024*1024) {
+                        put = new Put(Bytes.toBytes(rowid));
+                        put.addColumn(Bytes.toBytes("md"), Bytes.toBytes("query"), Bytes.toBytes(queryId));
+                        put.addColumn(Bytes.toBytes("md"), Bytes.toBytes("epoch"), Bytes.toBytes(epoch));
+                        put.addColumn(Bytes.toBytes("si"), Bytes.toBytes("streamitem"), serialized);
+                        //put.addColumn(Bytes.toBytes("si"), Bytes.toBytes("streamitem"), Bytes.toBytes(streamid));
+                        ImmutableBytesWritable hkey = new ImmutableBytesWritable(Bytes.toBytes(rowid));
+                        context.write(hkey, put); 
+                    } else {
+                        System.out.println(streamid + " exceeds 64M limit, skipping");
+                    }
+                        
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
