@@ -1,0 +1,100 @@
+{{About|the rail crash in 2000|the accident in 1870 in which eight died|Hatfield rail crash (1870)}}
+{{refimprove|date=December 2008}}
+
+{{Infobox rail accident
+|title      = Hatfield rail crash
+|image      = 07-11-05 Hatfield 50.jpg
+|caption    = <small>An [[InterCity 225]] passing the memorial garden created next to the [[East Coast Main Line]] for the four people who died in the Hatfield rail crash</small>
+|date       = {{Start date|2000|10|17|df=y}}
+|time       = {{Start date||||12|23||Z}}
+|location   = [[Hatfield, Hertfordshire]]
+|coordinates= {{coord|51|45|14|N|0|13|18|W|display=inline,title}}
+|country    = England
+|line       = [[East Coast Main Line]]
+|operator   = [[Great North Eastern Railway]]
+|type       = 
+|cause      = Broken rail
+|trains     = 1
+|pax        = 170
+|deaths     = 4
+|injuries   = over 70<ref>The [http://www.rail-reg.gov.uk/upload/pdf/297.pdf ORR Final Report] (July 2006) states "over 70" injured; news reports vary, mentioning figures up to "102 injured".</ref>
+| footnotes  = [[List of rail accidents in the United Kingdom|List of UK rail accidents by year]]
+}}
+The '''Hatfield rail crash''' was a [[railway]] accident on 17 October 2000, at [[Hatfield, Hertfordshire]], UK.  The accident did not result in a large number of deaths, but it nevertheless exposed the major stewardship shortcomings of the privatised national railway infrastructure company [[Railtrack]], and the failings of the regulatory oversight which the company displayed in its initial years, principally a failure to ensure that the company had a sound knowledge of the condition of its assets.   Railtrack was subsequently partially renationalised as a result.
+
+==Accident events==
+A [[GNER]] [[InterCity 225]] train bound for [[Leeds]] had left [[London King's Cross]] at 12:10, and was travelling at approximately {{convert|115|mph}} when it derailed south of [[Hatfield railway station|Hatfield station]] at 12:23. The primary cause of the accident was later determined to be the left-hand rail fracturing as the train passed over it. Four passengers died in the accident and a further seventy were injured.
+
+The leading [[British Rail Class 91|Class 91]] locomotive (91023) and the first two coaches remained upright and on the rails.  All of the following coaches, and the trailing [[Driving Van Trailer]] were derailed, and the train set separated into three sections.  The restaurant coach, the eighth vehicle in the set, overturned onto its side and struck an [[overhead line]] gantry after derailing, resulting in severe damage to the vehicle.
+
+Those who died were all in the restaurant coach:
+*Robert James Alcorn, 37, of [[Auckland]], [[New Zealand]]
+*Steve Arthur, 46, from [[Pease Pottage]], [[West Sussex]]
+*Leslie Gray, 43, of [[Tuxford]], [[Nottinghamshire]]
+*Peter Monkhouse, 50, of [[Headingley]], [[Leeds]]
+
+Crash investigators identified the integrity and strength of the [[British Rail]]-designed [[British Rail Mark 4|Mark 4]] coaches for protecting occupants. Coincidentally, the locomotive in the crash was also involved in the [[Great Heck rail crash]] (where the leading [[Driving Van Trailer]] hit a road vehicle on the track) a few months later.
+
+==Cause of accident==
+A preliminary investigation found a rail had fragmented as trains passed and that the likely cause was "[[rolling contact fatigue]]" (defined as multiple surface-breaking cracks). Such cracks are caused by high loads where the wheels contact the rail.<ref>{{cite web
+| last       = Doherty
+| first      = Andy
+| authorlink = |author2=Steve Clark |author3=Robert Care |author4=Mark Dembosky
+| title      = Why Rails Crack?
+| work       = 
+| publisher  = Ingenia Online
+| date       = June 2005
+| url        = http://www.ingenia.org.uk/ingenia/articles.aspx?Index=318
+| accessdate = 2008-12-09}}
+</ref> Repeated loading causes [[fatigue (material)|fatigue]] cracks to grow. When they reach a critical size, the rail fails. Over 300 critical cracks were found in rails at Hatfield. The problem was known about before the accident, and replacement rails made available but never delivered to the correct location for installation. The implication that other rails might be affected led to speed restrictions on huge lengths of railway, causing significant delays on many routes, while checks were carried out on the rail condition. The incidence of cracks similar to those found at Hatfield was alarmingly high throughout the country.{{Citation needed|date=January 2008}}
+
+The rail infrastructure company [[Railtrack]], having divested much of the engineering knowledge of British Rail into maintenance contractors, had inadequate maintenance records and no accessible asset register. It did not know how many other cases of "gauge corner cracking" (an example of rolling contact fatigue)<!--this term has been replaced in previous para, should be replaced here too?--> around the network could lead to a Hatfield-like accident. Railtrack imposed over 1,200 emergency speed restrictions and instigated a nationwide (and costly) track replacement programme. The company was subject to "enforcement" by the [[Rail Regulator]] [[Tom Winsor]].
+
+==Impact==
+The speed restrictions and track replacement works caused significant disruption on a majority of the national network for more than a year.
+
+This disruption and Railtrack's spiralling costs set in motion the events which resulted in the collapse of the company into [[administration (insolvency)|administration]] at the insistence of Transport Secretary [[Stephen Byers|Stephen Byers MP]], and its replacement by the not-for-dividend company [[Network Rail]] under Byers's successor [[Alistair Darling|Alistair Darling MP]].
+
+Train operating companies were adversely affected by the disruption – with an estimate of a 19% revenue reduction for passenger train operating companies in the first year after the crash. Freight operator [[EWS]] was cancelling up to 400 trains per week as a result, whilst estimates put [[Freightliner UK|Freightliner]]'s resultant losses at £1 million per month. The cost to the entire UK economy of the disruption was estimated at £6 million per day.<ref>{{citation|url = http://books.google.co.uk/books?id=vCJniku2eJMC| title = Off the rails: Britain's great rail crisis : cause, consequences and cure| author = Andrew Murray| publisher = Verso|year = 2001 | at = "Companies in trouble", pp.124-129}}</ref>
+
+The Institute of Rail Welding (IoRW)<ref>[Institute of Rail Welding (IoRW) http://www.iorw.org/about.html]</ref> was set up in 2002 by [[The Welding Institute]] (TWI) and [[Network Rail]] as a consequence of the recommendations in the investigation report. It provides a focus for individuals and organisations involved in rail welding and facilitates the adoption of best practice.
+
+==Court case==
+In 2003, six individuals and two companies &ndash; Network Rail (as successors of Railtrack) and the division of [[Balfour Beatty]] that maintained the track &ndash; were charged with [[manslaughter in English law|manslaughter]] in connection with the accident (see [[corporate manslaughter (England and Wales)|corporate manslaughter]]). Charges{{Which|date=March 2011}} against Network Rail/Railtrack and some of its executives were dropped in September 2004, but the other charges stood.<ref>{{cite news|url=http://news.bbc.co.uk/2/hi/uk_news/3618628.stm|title= Charges dropped against Railtrack|publisher=[[BBC News]]|date=2 September 2004|accessdate=4 March 4 2007|archiveurl=//web.archive.org/web/20121021173406/http://news.bbc.co.uk/2/hi/uk_news/3618628.stm|archivedate=21 October 2012}}</ref> The trial began in January 2005; the judge, Mr Justice Mackay, warned that it could go on for a year. On 14 July, the judge instructed the jury to acquit all defendants on charges of manslaughter.<ref>{{cite web|url=http://news.bbc.co.uk/2/hi/uk_news/4681891.stm|title=Rail killing charges thrown out|publisher=BBC News|date=14 July 2005|accessdate=4 March 2007|archiveurl=//web.archive.org/web/20120224192614/http://news.bbc.co.uk/2/hi/uk_news/4681891.stm|archivedate=24 February 2012}}</ref> A few days later, Balfour Beatty changed its plea to guilty<ref>{{cite news|accessdate=4 March 2007|url=http://news.bbc.co.uk/2/hi/uk_news/4692813.stm|title=Company admits Hatfield breaches|publisher=BBC News|date=18 July 2005|archiveurl=//web.archive.org/web/20110805103846/http://news.bbc.co.uk/2/hi/uk_news/4692813.stm|archivedate=5 August 2011}}</ref> on the health and safety charges and, on 6 September, Network Rail was found guilty of breaching health and safety law.<ref>{{cite news|accessdate=4 March 2007|url=http://news.bbc.co.uk/2/hi/uk_news/4219352.stm|title=Network Rail guilty over Hatfield |publisher=BBC News|date=6 November 2005|archiveurl=//web.archive.org/web/20121025231407/http://news.bbc.co.uk/2/hi/uk_news/4219352.stm|archivedate=25 October 2012}}</ref> All of the executives who had been charged were acquitted.
+
+The court considered the extent to which the poor condition of the rail was known and any acts or failures to act that resulted.
+
+*Anthony Walker (Balfour Beatty's rail maintenance director) and Nicholas Jeffries (its [[civil engineer]]), denied manslaughter.
+*Railtrack's Alistair Cook and Sean Fugill (asset managers for the London North-East zone), and track engineer Keith Lee, denied manslaughter.
+*All five men, with four others, were also accused of breaches of health and safety laws.
+*Balfour Beatty denied manslaughter.
+*Network Rail denied charges under the Health and Safety at Work etc. Act.
+
+==See also==
+*[[List of rail accidents in the United Kingdom]]
+
+==References==
+{{Reflist|2}}
+
+==External links==
+*[http://webarchive.nationalarchives.gov.uk/20131001175041/http://www.rail-reg.gov.uk/server/show/nav.1203 ORR summary: Hatfield train derailment (archive copy)]
+*[http://webarchive.nationalarchives.gov.uk/20131001175041/http://www.rail-reg.gov.uk/upload/pdf/297.pdf ORR Final Report by the Independent Investigation Board (archive copy)]
+*[http://www.rail-reg.gov.uk/server/show/ConWebDoc.8190 Health & Safety Executive page on the Hatfield crash]
+*[http://www.ingenia.org.uk/ingenia/articles.aspx?Index=318 Why Rails Crack] ''Ingenia'', June 2005
+*[http://www.open.edu/openlearn/science-maths-technology/engineering-and-technology/engineering/hatfield-rail-disaster Hatfield Rail Disaster - OpenLearn from The Open University]
+*BBC News coverage:
+**[http://news.bbc.co.uk/hi/english/static/in_depth/uk/2000/hatfield_crash/ BBC News In Depth - Hatfield crash]
+**[http://news.bbc.co.uk/2/hi/uk_news/4216830.stm How Hatfield changed the railways ]
+<!--many other pages available -- should be incorporated as links as possible-->
+
+{{2000 railway accidents}}
+{{Use dmy dates|date=March 2011}}
+
+{{DEFAULTSORT:Hatfield Rail Crash}}
+[[Category:Railway accidents in Hertfordshire]]
+[[Category:History of Hertfordshire]]
+[[Category:Railway accidents in 2000]]
+[[Category:2000 disasters in the United Kingdom]]
+[[Category:Hatfield, Hertfordshire]]
+[[Category:20th century in Hertfordshire]]
+

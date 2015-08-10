@@ -1,0 +1,137 @@
+{{Use dmy dates|date=August 2014}}
+{{Refimprove|date=April 2013 }}
+{{Infobox rail accident
+|image    = Fukuchiyama joko20051.jpg
+|caption  = Aftermath of the Amagasaki rail crash
+|title    = Amagasaki rail crash
+|date     = 25 April 2005
+|time     = 09:19 (JST)
+|location = [[Amagasaki]], [[Hyogo Prefecture]]
+|coordinates = {{Coord|34|44|29.3|N|135|25|35.7|E|region:JP_scale:10000_type:event|display=inline,title}}
+|country  = Japan
+|line     = [[Fukuchiyama Line]]
+|operator = [[West Japan Railway Company]]
+|type     = Derailment
+|cause    = Overspeed on curve arising from harsh penalties for lateness; retraining system
+|trains   = 1
+|pax      = Approx 700
+|deaths   = 107
+|injuries = 562
+|map_name = Fukuchiyama Line (JR Takarazuka Line) route map (Takarazuka – Amagasaki, Rapid)
+|map = {{Infobox rdt|map=
+{{BS|CONTg||{{RoutemapRoute|Licon=u|to Sanda and Fukuchiyama|enclosed=no}}||}}
+{{BS|BHF||{{ja-stalink|Takarazuka||JR West}}||}}
+{{BS|LUECKE||||}}
+{{BS|pBHF||{{ja-stalink|Tsukaguchi||JR West}}||}}
+{{BS5|STRrg|STRq|xABZgrxl|O3=INCIDO|exSTRlg|||'''Accident occurred'''||}}
+{{BS5|STR|exKDSTa|exSTR|exSTR|||''Amagasakishijo''||}}
+{{BS5|STR|exSTR|exSTRf|exDST|||''Nagasu''||}}
+{{BS5|ABZ3lf|eABZ3lf|eABZ3lf|xKRZo|STRlg||{{RoutemapRoute|Licon=l|Tokaido Line (JR Kobe Line)|enclosed=no}}||}}
+{{BS5||||exBHF|STR||''Amagasaki'' (temporary)||}}
+{{BS5||||exLUECKE|BHF||{{ja-stalink|Amagasaki||JR West}}||}}
+{{BS5|||||CONTf||{{RoutemapRoute|to Osaka and Kitashinchi|Ricon=d|enclosed=no}}||}}
+}}
+|map_state = collapsed
+}}
+
+The {{Nihongo|'''Amagasaki rail crash'''|JR福知山線脱線事故|JR Fukuchiyama-sen dassen jiko|lit. "JR Fukuchiyama Line derailment"}} was a fatal railway derailment which occurred on 25 April 2005 at 09:19 local time (00:19 [[UTC]]), just after the local [[rush hour]]. A seven-car [[commuter train]] came off the tracks on the [[JR West]] [[Fukuchiyama Line]] in [[Amagasaki]], Hyogo prefecture (near [[Osaka]]), just before [[Amagasaki Station (JR West)|Amagasaki Station]] on its way for Dōshisha-mae via the [[JR Tōzai Line]] and the [[Gakkentoshi Line]], and the front two carriages rammed into an [[apartment building]]. The first carriage slid into the first floor parking garage and as a result took days to remove. Of the roughly 700 passengers (initial estimate was 580 passengers) on board at the time of the crash, 106 passengers, in addition to the driver, <!-- i.e. 107 dead in total, not 107 passengers dead --> were killed and 562 others injured. Most passengers and bystanders have said that the train appeared to have been travelling too fast. The incident was Japan's most serious since the 1963 [[Tsurumi rail accident]] in which two passenger trains collided with a derailed freight train, killing 162&nbsp;people.
+
+==Train details and crash==
+[[File:JR-West207.jpg|thumb|A 207 series EMU train similar to the one involved in the Amagasaki rail crash]]
+The train involved was train number 5418M, a limited-stop "Rapid" commuter service from {{ja-stalink|Takarazuka||JR West}} to {{Ja-stalink|Dōshisha-mae}}. It was a seven-car [[207 series]] [[electric multiple unit]] (EMU) formation consisting of a 4-car set and a 3-car set coupled together as shown below, with car 1 leading.<ref name="journal465">{{cite journal| last = Nagase| first = Kazuhiko| title = 福知山線脱線事故の問題を語る|trans_title= Discussing the problems of the Fukuchiyama Line derailment| journal = Railway Journal | volume = 39| issue = 465| pages = p.68–73| publisher = Tetsudō Journal | location = Japan | date = July 2005}}</ref> The train was carrying approximately 700 passengers at the time of the accident.<ref name="journal465"/>
+
+{| class="wikitable"
+|-
+! Car No. !! 1 !! 2 !! 3 !! 4  !! 5 !! 6 !! 7
+|-
+! Numbering
+| KuHa 207-17 || MoHa 207-31 || MoHa 206-17 || KuHa 206-129 || KuMoHa 207-1033 || SaHa 207-1019 || KuHa 206-1033
+|}
+
+The front four cars derailed completely, with the first car ramming into the parking of the apartment building and the second car colliding into the external wall of the building becoming almost completely compacted by the third and fourth cars, which were themselves pushed from the rear by the fifth car.<ref name="journal465"/>
+
+==Investigation==
+Investigators have focused on speeding by the 23-year-old driver, Ryūjirō Takami (who was among the dead), as being the most likely cause of the derailment. 25 minutes before the derailment, Takami had run a red light, causing the [[Automatic train stop]] (ATS) to bring the train to a halt.<ref name="Seconds from Disaster">''[[Seconds From Disaster]]'' – ''Runaway Train'' – season 6, episode 7</ref> The train had also overshot the correct stopping position at an earlier stop at [[Itami Station (JR West)|Itami Station]], requiring him to back up the train, and resulting in a 90-second delay,<ref name="journal465"/> about 4 minutes before the disaster.<ref name="Seconds from Disaster" /> By the time the train passed [[Tsukaguchi Station (JR West)|Tsukaguchi Station]] at a speed of 120 km/h, the delay had been reduced to 60 seconds.<ref name="journal465"/>
+
+Investigators speculate that Takami may have been attempting to make up this lost time by increasing the train's speed beyond customary limits. Many reports from surviving passengers indicate that the train was travelling faster than normal. Plus, the driver might have been stressed because he would be punished both for having passed by a red light and for having overshot the platform at [[Itami Station (JR West)|Itami Station]]. Ten months before the crash, Takami had been reprimanded for overshooting a station platform by 100 meters. In the minutes leading up to the derailment, he might have been thinking of the punishment he would face, and not totally focused on driving.<ref name="Seconds from Disaster" />
+
+The [[West Japan Railway Company]] is very strict when it comes to punctuality,<ref>{{cite journal|last1=Nagata|first1=Takashi|last2=Rosborough|first2=Stephanie N.|last3=VanRooyen|first3=Michael J.|last4=Kozawa|first4=Shuichi|last5=Ukai|first5=Takashi|last6=Nakayama|first6=Shinichi|title=Express Railway Disaster in Amagasaki: A Review of Urban Disaster Response Capacity in Japan|journal=Prehosp Disaster Med|date=Sep–Oct 2006|volume=21|issue=5|page=345}}</ref> and commuters often depend on near-perfect timing on the part of trains to commute to and from work on time. This is because at stations (including the derailed train's next scheduled stop at Amagasaki Station) trains meet on both sides of the same platform to allow people to transfer between rapid and local trains running on the same line. As a result, a small delay in one train can significantly cascade through the timetable for the rest of the day due to the tightness of the schedule. Immediately after the rail crash occurred, some of the mass media pointed to the congested schedule of the [[Fukuchiyama Line]] as an indirect factor. In fact, cumulative changes over the previous three years had reduced the leeway in the train's schedule from 71 to 28 seconds over the 15&nbsp;minutes between Takarazuka and Amagasaki stations.
+
+Drivers face financial penalties for lateness as well as being forced into harsh and humiliating retraining program, known as "Nikkin Kyoiku" ("dayshift education," including weeding and grass-cutting duties during the day)<ref>http://www.fm-world.co.uk/news/fm-industry-news/drivers-win-toilet-battle-with-japan-train-firm/</ref> retraining programs.<ref>{{cite web| url=http://www.japantimes.co.jp/news/2005/07/23/national/1182-retraining-sessions-at-jr-west/ | title=1,182 'retraining sessions' at JR West | publisher=The Japan Times Online (japantimes.co.jp) | date=23 July 2005 | accessdate=2 December 2012}}</ref> The final report officially concluded that the retraining system was one probable cause of incident.<ref>{{cite web|url=http://www.japantimes.co.jp/news/2007/06/29/national/jr-train-driver-faulted-in-final-report-on-crash | title=JR, train driver faulted in final report on crash | publisher=The Japan Times Online (japantimes.co.jp) | date=29 June 2007 | accessdate=2 December 2012}}</ref> This program consisted of violent verbal abuse, forcing the employees to repent by writing extensive reports. Also, during these times, drivers were forced to perform minor tasks, particularly involving cleaning, instead of their normal jobs. Many saw the process of "Nikkin Kyoiku" as a punishment and psychological torture, and not as driver retraining.<ref name="Seconds from Disaster" />  The driver had also received a non-essential phone call from the general control station at the time he was rounding the bend. <ref> http://www.mlit.go.jp/jtsb/eng-rail_report/RA2007-3-1en.pdf </ref> 
+
+The [[speed limit]] on the segment of track where the derailment happened was {{Convert|70|km/h|mph|abbr=on}}. The data recorder in the rear of the train (the rear cars were new and equipped with many extra devices) later showed that the train was moving at {{Convert|116|km/h|mph|abbr=on}} at that point. Investigators ran a series of simulations and calculated that the train would derail on that curve if going any speed over {{Convert|106|km/h|mph|abbr=on}}. It is believed that Ryūjirō Takami was so stressed about the inevitability of going back into "Nikkin Kyoiku" due to the two infractions from earlier (the red light he'd overrun and the platform overshoot) that he did not notice that the train was going too fast. And when the driver did notice it, 4 seconds before the derailment, he used the service brake, instead of the emergency brake, to avoid another infraction, for the use of the emergency brake had to be justified.<ref name="Seconds from Disaster" />
+
+Japanese building codes currently do not regulate the distance between train lines and residential buildings due to high confidence in the engineering of the rail system. Railway lines often pass close to residential buildings in metropolitan areas.
+
+== Aftermath ==
+Amongst other things, the Ministry of Land and Transportation asked all railway companies to update their automatic stopping systems so that trains brake automatically to slow down as they approach sharp curves.
+
+It is believed that a contributing factor in the accident was the JR West policy of schedule punctuality. As a result of this, Masataka Ide, JR West adviser who played a major role in enforcing the punctuality of the company's trains, announced that he would resign in June 2005 at the company's annual shareholder meeting, with the company's chairman and president resigning in August.
+
+The section where the crash occurred, between Amagasaki and Takarazuka stations, was re-opened for service on 19 June 2005. The speed limits were reduced from {{convert|120|to|95|kph|abbr=on}} for the straight section and from {{convert|70|to|60|kph|abbr=on}} for the curved rail section around the accident site.
+
+According to the investigations carried out by the Hyōgo Prefecture police, out of the 107 deaths, at least 43 (27 men, 16 women), including the driver, were in the first car, at least 45 (22 men, 23 women) were in the second car, and at least one was in the third car. This information was determined by questioning 519 of the approximately 550 injured passengers.
+
+On 26 December 2005, Takeshi Kakiuchi officially resigned from the presidency of JR West in a move intended to take responsibility for the accident. Kakiuchi's successor was Masao Yamazaki, who previously served as the railway's vice president, based in [[Osaka]]. While Kakiuchi's resignation came a day after another serious accident on JR East, officials at the railway did not make any explicit connection between the recent accident and the resignation.
+[[File:Jrwest-amagasaki.png|thumb|right|As of 2014, the report for this incident still takes a prominent place on West JR's homepage. The title reads "For your peace of mind and trust".]]
+Although a number of senior officials resigned their posts with JR West, ostensibly to take responsibility for the accident, many were later given senior positions with affiliated companies. {{Citation needed|date=June 2010}}
+
+A 2008 ''[[The Daily Yomiuri]]'' article stated that survivors of the disaster still faced physical and mental health issues.<ref>"[http://www.yomiuri.co.jp/dy/national/20080421TDY02309.htm '05 JR West crash victims, families still suffer effects]." ''[[The Daily Yomiuri]]''.</ref>
+
+On 8 July 2009, West Japan Railway Co. President Masao Yamazaki was charged with negligence. On the same day, he announced at a press briefing in Osaka that he would resign, "so the company can operate normally." Yamazaki will remain a member of JR West's board.<ref>"[http://www.bloomberg.com/apps/news?pid=20601101&sid=acU1NgOk6n9c West Japan Railway Chief Yamazaki Says He Will Resign]." ''[[Bloomberg L.P.]]''.</ref><ref>[http://search.japantimes.co.jp/cgi-bin/nn20090709a1.html JR West president indicted over crash]. ''[[Japan Times]]'' 9 July 2009</ref>
+
+On 11 January 2012, Yamazaki was found not guilty of professional negligence by judge Makoto Okada of the Kobe District Court, saying the accident was not sufficiently predictable to merit a finding of guilt.  The court, however, criticized JR West for faulty risk assessment of the curve where the accident happened.<ref>[[Kyodo News]], "[http://www.japantimes.co.jp/text/nn20120111x1.html Court clears former JR chief in '05 derailment]", ''[[Japan Times]]'', 12 January 2012, p. 1.</ref>
+
+== Similar accidents ==
+
+=== Too fast around sharp curve ===
+* United Kingdom [[Salisbury rail crash]], 1906 – 28 killed
+* United States [[Malbone Street Wreck]], 1918 in New York – 98 killed
+* Australia [[Camp Mountain train disaster]], 1947 – 16 killed
+* Japan [[Hachikō Line derailment]], February 1947 – 184 killed
+* United Kingdom [[Sutton Coldfield rail crash|Sutton Coldfield train disaster]], 1955 – 17 killed
+* United Kingdom [[Morpeth rail crash]]es, 1969, 1984, 1994 – a total of 6 killed in three separate accidents
+* United Kingdom [[Eltham Well Hall rail crash]], 1972 – 6 killed
+* Italy [[Piacenza derailment]], 1997 – 8 killed
+* Germany [[Brühl train disaster]], 2000 – 9 killed
+* Australia [[Waterfall train disaster]], 2003 – 7 killed
+* Australia [[Cairns Tilt Train derailment]], 2004 – 0 killed
+* Spain [[Valencia Metro derailment]], 2006 – 41 killed
+* Spain [[Santiago de Compostela derailment]], 2013 – 79 killed
+* United States [[December 2013 Spuyten Duyvil derailment|Spuyten Duyvil derailment]] – 4 killed
+* United States [[2015 Philadelphia train derailment]] – 8 killed
+
+=== Failure to check speed after stop and proceed ===
+* Australia [[Glenbrook train disaster]], 1999 – 7 killed
+
+== See also ==
+* [[List of rail disasters]]
+
+== References ==
+{{Reflist}}
+
+== External links ==
+{{Wikinews|Japanese commuter train derails, apartment building smashed}}
+* [[Aircraft and Railway Accidents Investigation Commission]] Official report (agency has since merged into the [[Japan Transport Safety Board]])
+** [http://www.mlit.go.jp/jtsb/eng-rail_report/RA2007-3-1en.pdf Train Derailment Accident between Tsukaguchi and Amagasaki Stations of the Fukuchiyama Line of the West Japan Railway Company (Excerpt)] ([http://www.webcitation.org/6U9B8lYSv Archive]) - 22 June 2007 - English translation
+** {{ja icon}} {{cite web|script-title=ja:福知山線脱線事故・事故調査報告書|trans_title=Fukuchiyama Line Derailment Accident Investigation Report|url=http://jtsb.mlit.go.jp/jtsb/railway/bunkatsu.html|publisher=Aircraft and Railway Accidents Investigation Commission|accessdate=21 December 2011|language=Japanese|date=1 March 2007}} - [http://jtsb.mlit.go.jp/jtsb/railway/report/RA07-3-1.pdf First page]
+* {{cite news| date=25 April 2005| url=http://news.bbc.co.uk/1/hi/world/asia-pacific/4480031.stm| title=Japanese train crash kills dozens| publisher=BBC}}
+* {{cite news| date=26 April 2005| url=http://www.smh.com.au/news/World/Japan-begins-train-crash-investigations/2005/04/26/1114462040883.html?oneclick=true| title=Japan begins train crash investigation| publisher=[[Sydney Morning Herald]]}}
+* {{cite news| date=26 April 2005| url=http://www.latimes.com/news/nationworld/world/la-fg-crash26apr26,0,3988822.story?coll=la-home-world| title=Death toll rises in Japan crash| publisher=[[Los Angeles Times]] | first=Bruce | last=Wallace}}
+* {{cite news| date=27 April 2005| url=http://news.bbc.co.uk/1/hi/world/asia-pacific/4492267.stm| title=Japan rail crash toll tops 100| publisher=BBC}}
+* {{cite news| date=28 April 2005| title=International Herald Tribune| pages=1;8}}
+* {{cite news| date=14 May 2005| url=http://www.smh.com.au/news/World/Rail-crash-exposes-cracks-in-a-society-under-strain/2005/05/13/1115843371739.html?oneclick=true| title=Rail crash exposes cracks in a society under strain| publisher=Sydney Morning Herald}}
+* {{cite news| date=18 May 2005| url=http://www.trains.com/Content/Dynamic/Articles/000/000/005/931bhcvj.asp| title=Japanese executives to resign over commuter-train derailment| work=Trains News Wire| publisher=Kalmbach Publishing| accessdate=19 May 2005}} {{Dead link|date=October 2010|bot=H3llBot}}
+* {{cite news| date=26 December 2005| url=http://abcnews.go.com/International/wireStory?id=1444354| title=President of West Japan Railway to Resign| agency=Associated Press| publisher=ABC News| accessdate=27 December 2005}} {{Dead link|date=October 2010|bot=H3llBot}}
+* {{cite news| date=6 August 2007| url=http://search.japantimes.co.jp/cgi-bin/nn20070806a3.html| title=JR West admits fatal crash could have been avoided| publisher=Kyodo News (reprinted by Japan Times)| accessdate=6 August 2007}}
+* [http://www.youtube.com/watch?v=luZJDrTsW4Q Seconds to Disaster Documentary ( YouTube)]
+
+{{2005 railway accidents}}
+
+[[Category:Derailments in Japan]]
+[[Category:Railway accidents in 2005]]
+[[Category:2005 in Japan]]
+[[Category:Accidents and incidents involving West Japan Railway Company]]
+[[Category:Rail transport in Hyōgo Prefecture]]
+[[Category:Heisei period]]
+

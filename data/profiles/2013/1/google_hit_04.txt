@@ -1,0 +1,54 @@
+{{Infobox rail accident
+| title            = Ciurea rail disaster
+| boxwidth         = 
+| image            = Iasi in Romania.svg|250px
+| image_alt        = 
+| image_width      = 
+| caption          = Location of Iași County in Romania
+| date             = 13 January 1917
+| time             = 
+| location         = [[Ciurea]], [[Iași County]]
+| location-dist    = 
+| location-dist-mi = 
+| location-dir     = 
+| location-city    = 
+| coordinates      = 
+| country          = [[Romania]]
+| line             = 
+| operator         = 
+| type             = 
+| cause            = 
+| trains           = 
+| pax              = 
+| deaths           = 600 - 1000
+| injuries         = 
+| damage           = 
+| map              = 
+| map_name         = 
+| map_state        = 
+}}
+
+The '''Ciurea rail disaster''' occurred on 13 January 1917, at [[Ciurea]] station, [[Romania]], a station with [[passing loop]] on the railway line from [[Iaşi]] to [[Bârlad]]. Between 600<ref name=Marx1>Marx, ''Lawson Billinton'' p. 81</ref> and 1,000<ref name=Botez1>Botez, ''Epopeea Feroviară Românească''</ref> passengers were killed in a derailment and subsequent fire.<ref name=Wolmar1>Wolmar, ''Engines Of War'' p.219</ref>
+
+Approaching Ciurea from Bârlad the line descends a steep bank some 10 miles (15&nbsp;km) in length between [[Bârnova]] and Ciurea, the gradient being a slope of 1 in 40<ref name=Wolmar1/> increasing to 1 in 15 (6.7%) in places.<ref name=Marx1/> At 1 pm a train of 26 carriages headed by two locomotives,<ref name=Wolmar1/> loaded with wounded Russian soldiers<ref name=Wolmar1/> and refugees fleeing from the advance of [[August von Mackensen|von Mackensen]]'s troops, left Bârnova.<ref name=Botez1/> Passengers were crowded on the carriage roofs and between the carriages above the buffers.<ref name=Marx2>Marx, ''Lawson Billinton'' p. 83</ref> When the train was moving a soldier closed the Westinghouse train pipe cock, rendering the train brakes inoperative.<ref name=Marx2/> The connecting brake pipes between the carriages were damaged by passengers stepping on them.<ref name=Wolmar1/> As the train began to descend the bank the drivers found the [[Westinghouse brake]] inoperative, and were unable to apply the brakes on the carriages. The braking power of the two engines was insufficient to slow the train,<ref name=Wolmar1/> which accelerated quickly.<ref name=Marx2/> Despite throwing the locomotives into reverse, and operating the sanding equipment to increase the grip of the locomotives' wheels on the track, the train crews were unable to slow the train.<ref name=Wolmar1/> The straight line at the foot of the bank at Ciurea station was occupied by a second train,<ref name=Marx2/> and the runaway train was switched to the right<ref name=Botez1/> into the loop at high speed.<ref name=Marx2/> The train derailed, only 2 of the 26 carriages remaining on the line,<ref name=Botez1/> and caught fire burning down to a pile of twisted ironwork.<ref name=Marx2/>
+
+==Citations==
+{{reflist|colwidth=30em}}
+
+==References==
+* {{cite book |author=Botez, Constantin |title=Epopeea Feroviară Românească |publisher=Editura Sport-Turism |location=Bucureşti, Rumania |year=1977}}
+* {{cite book |author=Marx, Klaus |title=Lawson Billinton; A Career Cut Short |publisher=Oakwood Press |location= Usk, UK |year=2007 |isbn=978-0-85361-661-0}}
+* {{cite book |author=Wolmar, Christian |title=Engines Of War; How Wars Were Won & Lost On The Railways |publisher=Atlantic Books |location= London, UK |year=2010 |isbn=978-1-84887-172-4}}
+
+==External links==
+* [http://www.antena3.ro/romania/catastrofa-de-la-ciurea-cel-mai-grav-accident-feroviar-din-romania-aproape-1-000-de-suflete-au-pierit-161371.html web page about the accident (in Romanian)]
+
+{{coord|47|03|27|N|27|34|18|E|region:RO-IS_type:landmark_source:kolossus-dewiki|display=title}}
+
+[[Category:Railway accidents in 1917]]
+[[Category:Railway accidents in Romania]]
+[[Category:Runaway train disasters]]
+[[Category:Iași County]]
+[[Category:1917 in Romania]]
+[[Category:Derailments]]
+

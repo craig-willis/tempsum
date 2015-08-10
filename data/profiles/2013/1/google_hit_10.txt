@@ -1,0 +1,87 @@
+{{Use mdy dates|date=December 2013}}
+{{Infobox rail accident
+|image = Ashtabula Bridge disaster.jpg
+|caption = Wood engraving published in [[Harper's Weekly]],<br/> January 20, 1877
+|title = Ashtabula River railroad disaster
+|date = December 29, 1876
+|time = About 7:30 pm
+|location = [[Ashtabula, Ohio|Ashtabula]] / [[Edgewood, Ohio|Edgewood]], [[Ohio|Ohio, USA]]
+|country = United States
+|line =
+|operator = [[Lake Shore and Michigan Southern Railway]]
+|type = Derailment and fire
+|cause = Bridge collapse
+|trains = 1
+|deaths = 92
+|injuries = 64
+|footnotes=[[List of rail accidents (before 1880)]]
+}}
+
+The '''Ashtabula River railroad disaster''' (also called the '''Ashtabula horror''' or the '''Ashtabula Bridge disaster''' or the '''Ashtabula train disaster''') was a derailment caused by the failure of a bridge over the Ashtabula River about {{convert|1000|ft}} from the railroad station at [[Ashtabula]], in far northeastern [[Ohio]]. On December 29, 1876, at about 7:30 pm, two locomotives hauling 11 railcars of the [[Lake Shore and Michigan Southern Railway]] carrying 159 passengers plunged into the river in deep snow when the bridge gave way beneath them. The wooden cars were set alight by their heating stoves, but no attempt was made to extinguish the fire. The accident killed 92 people, including the gospel singer and hymn-writer [[Philip Bliss]] and his wife, and was the worst rail accident in the U.S. until the [[Great Train Wreck of 1918]].
+
+The coroner's report found that the bridge, designed by the railroad company president, had been improperly designed and  inadequately inspected. As a result of the accident a hospital was built in the town and a federal system set up to formally investigate fatal railroad accidents.
+{{TOC limit|2}}
+
+==Bridge collapse and fire==
+[[File:Ashtabula Bridge Disaster postcard.jpg|thumb|left|Postcard photo of the wreck]]
+
+The [[Lake Shore and Michigan Southern Railway]] Train No. 5, ''The Pacific Express'', left [[Erie, Pennsylvania]], on the afternoon of December 29, 1876 in deep snow.{{sfn|Peet|1877|p=22}}<ref name="ACA"/> Two locomotives, "Socrates" and "Columbia", were hauling 11 railcars, including two express cars, two baggage cars, one smoking car, three coaches, and three sleeping cars that carried 159 passengers.<ref name="ABD"/> At about 7:30 pm<ref name="Jury">Coroner's Jury's findings, [http://home.windstream.net/arhf/bridge3.htm quoted] at ''Ashtabula Bridge Disaster'' website. Retrieved October 31, 2012</ref> the train was crossing over the [[Ashtabula River]] about {{convert|1000|ft|-1}}<ref name="ACA">Ashtabula County Archives,  [http://home.windstream.net/arhf/bridge1.htm quoted] at ''Ashtabula Bridge Disaster'' website. Retrieved October 31, 2012</ref> from the railroad station at [[Ashtabula, Ohio]] when the bridge gave way beneath it. The lead locomotive made it across the bridge, while the second locomotive and the rest of the train plunged {{convert|76|ft|m}} into the water.{{sfn|Peet|1877|pp=27–29}} Some cars landed in an upright position. The wooden cars were set alight by the heating stoves and lamps and soon small, localized fires became an inferno.{{sfn|Peet|1877|pp=36–38}}
+
+Of 159 passengers and crew on board that night, 92 were killed or died later from injuries;<ref name="ABD">LS&MS Railway 1877 Corporate Stockholder Report, [http://home.windstream.net/arhf/bridge.htm quoted] at ''Ashtabula Bridge Disaster'' website. Retrieved October 31, 2012</ref> they included the [[gospel singer]] and hymn-writer [[Philip Bliss]] and his wife.{{sfn|Peet|1877|p=183}} Forty-eight of the fatalities were unrecognizable or consumed in the flames. Sixty-four people were injured.<ref name="ABD"/>
+
+==Aftermath==
+The crash was heard in the town and the alarm was raised.{{sfn|Peet|1877|p=42}} By the time the townspeople reached the bridge the wounded passengers had made their way to the shore{{sfn|Peet|1877|p=45}} and the fire was burning fiercely.{{sfn|Peet|1877|p=47}} When the Ashtabula Fire Brigade arrived, the immediate instructions from railroad employees were to get the wounded out and to clear a pathway up the side of the ravine.{{sfn|Peet|1877|pp=49–50}} After this no water was put onto the fire, even after reports of survivors still trapped in the wreck.{{sfn|Peet|1877|p=52}}
+
+The survivors were led, carried and conveyed on sleds to hotels and private houses in the town, there being no hospital. However, people assisting also stole money and valuables from the survivors and dead, $1,500 (about {{Inflation|US|1.5|1876}},000 dollars today){{Inflation-fn|US}} being returned following investigation by detectives and after the mayor had made a proclamation.{{sfn|Peet|1877|pp=56–65}} The dead were moved the following morning.{{sfn|Peet|1877|pp=81–83}} The railroad bridge was re-built with temporary underpinning.{{sfn|Peet|1877|loc=Illustration between pp.  88 and 89}}
+
+==Investigations==
+[[File:Ashtabula bridge.jpg|left|thumb|The iron bridge before collapse]]
+
+The following day an investigative [[coroner's jury]], made up of six men, was appointed. Their investigation was to take 68 days.<ref name="Jury"/>
+
+The Ashtabula bridge designer, [[Amasa Stone]], who had been president of the railroad company{{efn| The Cleveland, Painesville and Ashtabula Railroad Company changed its name to the Lake Shore Railway Company in 1868, and this was a constituent of the Lake Shore and Michigan Southern Railway the following year.<ref>{{cite web | url=http://www.s363.com/dkny/lsms.html | title=History of the Lake Shore and Michigan Southern Railway Company | publisher=s363, from the 1913 Annual Report of The New York Central Railroad System | accessdate=December 29, 2013}}</ref>}} that had built the bridge,<ref>{{cite web|title=Stone, Amasa|publisher=Case Western Reserve University and Western Reserve Historical Society|work=The Encyclopedia of Cleveland History|url=http://ech.cwru.edu/ech-cgi/article.pl?id=SA8|accessdate=December 29, 2013}}</ref> had
+taken a well-established wooden bridge pattern (the [[Howe_truss#Howe_truss|Howe Truss]]) and adapted it as the pattern for an all-iron bridge. Built in 1865 to span {{convert|165|ft}}, the engineer employed to draft and construct it resigned after saying the braces were too small. The Railroad's Engineer in Charge, Charles Collins, saw it as an "experiment", leaving matters to the president.{{sfn|Peet|1877|pp=14–17}} The coroner's jury report strongly criticized the design of the bridge, as the failure of one part led to its collapse. Bridge members, instead of being fastened, rested on each other. The report also noted that an inspection by a competent bridge engineer during the 11 years the railroad had used the bridge would have spotted these defects. The jury also criticized the way the trains had been heated, and censured the Ashtabula Chief Fireman for failing to attempt to put out the fire.<ref name="Jury"/>
+
+The [[Ohio House of Representatives|State Legislature of Ohio]] appointed engineers to look at the use of iron for the bridge, then a new material, and they concluded that the material had no inherent defect.{{sfn|Peet|1877|loc=Preface, p. iv}} Days after testifying to the State Legislature Committee, Collins was found dead in his bedroom of a gunshot wound to the head.{{sfn|Peet|1877|pp=159–161}} Having tendered his resignation to the Board of Directors the previous Monday, and been refused,{{sfn|Peet|1877|p=162}} Collins was believed to have committed suicide out of grief and feeling partially responsible for the tragic accident. However, a police report at the time suggested the wound had not been self-inflicted,<ref>{{cite news| url=http://query.nytimes.com/mem/archive-free/pdf?res=F6061FF83E5A137B93C6AB178AD95F4C8784F9 | work=The New York Times | title=The Ashtabula Disaster; A Report That Engineer Collins Was Murdered | date=November 24, 1878}}</ref> and documents discovered in 2001 and an examination of Collins' skull suggest that he had indeed been murdered.<ref>{{cite book|last=Corts|first=Tom|title=Bliss and Tragedy: The Ashtabula Railway-Bridge Accident of 1876 and the Loss of P. P. Bliss|year=2003|publisher=Samford University Press|isbn=1-931985-09-X|pages=145–158}}</ref>
+
+Amasa Stone committed suicide seven years later after experiencing financial difficulties with some foundries he had interests in, suffering from severe ulcers that kept him from sleeping and scorn from the public over the disaster.{{fact|date=November 2012}}
+
+Some recent authors have attributed the accident to fatigue of the cast-iron lug pieces which were used to anchor the wrought-iron bars of the truss together. Many were poorly made, and needed shims of metal inserted to hold the bars in place.{{fact|date=November 2012}}
+
+==Legacy==
+[[File:Ashtabula Train Disaster Marker.JPG|right|thumb|The Ohio historical marker "Ashtabula Train Disaster"]]
+
+Ashtabula General Hospital was built because of the accident. About ten years later, [[steam generator (railroad)|steam heat]] was adopted by the railroad, replacing the wood and coal stoves in passenger cars.<ref name="Results"/> In 1887 a federal system was set up to formally investigate fatal railroad accidents.<ref>{{cite book|title=Great Train Disasters|page=63|first=Geoffrey|last=Kitchenside|isbn=978-0752526300|publisher=Parragon Plus|year=1997}}</ref> 
+
+Twenty years later, in Ashtabula's [[Chestnut Grove Cemetery]], a monument was erected to all those "unidentified" who died in the Ashtabula Railroad disaster.<ref name="Results">{{cite web|url=http://home.windstream.net/arhf/bridge5.htm|title=Results of the accident|accessdate=October 31, 2012|work=Ashtabula Bridge Disaster website}}</ref>
+
+==Notes and references==
+
+===Notes===
+{{notelist}}
+
+===References===
+{{reflist|35em}}
+
+===Sources===
+*{{cite book|last=Peet|first=Stephen Denison|title=The Ashtabula Disaster|year=1877|publisher=J.S. Goodman and Louis Lloyd & Co|ref=harv}} [http://www.archive.org/details/ashtabuladisaste00peetuoft Scan] available on line at the [[Internet Archive]]. Accessed October 31, 2012.
+
+==External links==
+{{commonscat|Ashtabula Bridge disaster}}
+
+*[http://www.prairieghosts.com/rr_disaster.html Ghosts of the Ashtabula Bridge Disaster]
+* [http://home.windstream.net/arhf/bridge.htm The Ashtabula Railroad Disaster], from the Ashtabula Historical Railroad Foundation. Website includes pictures of the bridge before and after the collapse and additional information.
+*[http://www.ohiohistorycentral.org/entry.php?rec=466 Ashtabula Train Disaster of 1876], from the Ohio Historical Society.
+
+{{coord|41.8785|-80.7894|type:landmark_region:US-OH|display=title}}
+
+[[Category:1876 in Ohio]]
+[[Category:Bridge disasters in the United States]]
+[[Category:Bridge disasters caused by engineering error]]
+[[Category:Bridge disasters caused by construction error]]
+[[Category:Derailments in the United States]]
+[[Category:Railway accidents in Ohio]]
+[[Category:Accidents and incidents involving Lake Shore and Michigan Southern Railway]]
+[[Category:Transportation in Ashtabula County, Ohio]]
+[[Category:Railway accidents in 1876]]
+

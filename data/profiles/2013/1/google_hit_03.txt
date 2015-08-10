@@ -1,0 +1,127 @@
+{{Use dmy dates|date=July 2014}}
+{{Use British English|date=July 2014}}
+{{Infobox rail accident
+| title      = Great Heck Rail Crash
+| image      = Mk4DVT-82201-03.jpg
+| caption    = An [[InterCity 225]] DVT, similar to the one involved in the crash
+| date       = 28 February 2001
+| time       = 06:13 [[GMT]]
+| location   = [[Great Heck]], [[Selby]], [[North Yorkshire]]
+| coordinates= {{coord|53|41|14|N|1|05|53|W|region:GB-NYK_type:event|display=inline,title}}
+| country    = England, UK
+| line       = [[East Coast Main Line]]
+| operator   = [[Great North Eastern Railway]]
+| type       = 
+| cause      = Obstruction on line
+| trains     = 2
+| pax        = 
+| deaths     = 10
+| injuries   = 82
+| footnotes  = [[List of rail accidents in the United Kingdom|List of UK rail accidents by year]]
+}}
+
+The '''Great Heck rail crash''', widely known as the '''Selby rail crash''', was a high-speed [[train]] accident that occurred at [[Great Heck]] near [[Selby]], [[North Yorkshire]], England on the morning of 28 February 2001.  Ten people died, including the drivers of both trains involved, and 82 people suffered serious injuries. It remains the worst rail disaster in the 21st century in the United Kingdom.
+
+==Events==
+The crash occurred at approximately 06:13 (GMT), when a [[Land Rover Defender]] towing a loaded trailer (carrying a [[Renault Savanna]] estate car) swerved off the [[M62 motorway]] just before a bridge over the [[East Coast Main Line]].  The vehicle ran down an embankment and onto the southbound railway track. The Land Rover's driver, Gary Neil Hart, tried to reverse it off the track, but he could not. While he was using a mobile telephone to call the emergency services after exiting the vehicle, the Land Rover was hit by a southbound [[GNER]] [[InterCity 225]] heading from [[Newcastle Central station|Newcastle]] to [[London King's Cross]].
+
+The InterCity 225 was propelled by a [[British Rail Class 91|Class 91]] locomotive (No.91023) and led by a [[Driving Van Trailer]] (DVT).  After striking the Land Rover, the leading [[bogie]] of the DVT derailed but the train stayed upright. [[Railroad switch|Points]] to nearby [[Siding (rail)|sidings]] then deflected it into the path of an oncoming [[Freightliner Group|Freightliner]] [[freight train]] carrying coal <ref>{{cite news
+| title      = Rail crash 'unavoidable' - report
+| work       = Mail Online
+| date       = 24 February 2011
+| url        = http://www.dailymail.co.uk/news/article-28317/Rail-crash-unavoidable--report.html
+| accessdate = 24 February 2011}}</ref> and travelling from [[Immingham]] to [[Ferrybridge]] hauled by a [[British Rail Class 66|Class 66]] locomotive (No.66521).  The freight train hit the wreckage approximately half a mile (642&nbsp;metres) from the passenger train's impact with the Land Rover.  The impact resulted in the near destruction of the lightweight DVT and severe to moderate damage to all nine of the InterCity 225's coaches, which mostly overturned and came to rest down an embankment to the east side of the track, in the gardens of local residents.  The trailing locomotive remained upright and suffered minor damage, although it was derailed.  The Class 66 freight lost its bogies after impact, with debris of the DVT jammed underneath rupturing its fuel tank. The freight locomotive then overturned onto its left side, sustaining major damage to its cab area and right side. The first nine wagons following it were also derailed and damaged to varying extents.
+
+Immediately before the impact of the two trains, the speed of the InterCity 225 was estimated as {{convert|88|mph|abbr=on}} and that of the freight train as {{convert|54|mph|abbr=on}}. With an estimated closing speed of {{convert|142|mph|abbr=on}}, the collision between the trains is the highest speed railway incident that has occurred in the UK.<ref>{{cite news
+| last       = Wainwright
+| first      = Martin
+| title      = Rail crash inquiry calls for monitors
+| publisher  = Guardian Unlimited
+| date       = 5 December 2002
+| url        = http://www.guardian.co.uk/uk/2002/dec/05/selby.railtravel
+| accessdate = 25 August 2008}}</ref>
+
+==Outcome==
+Both train drivers, two additional train crew on board the InterCity 225, and six passengers died. Those who died were all killed as a result of the second collision.<ref>[http://www.bbc.co.uk/news/uk-england-york-north-yorkshire-12591249 "Selby rail crash car driver Gary Hart blames 'fate'"], [[BBC News]], 28 February 2011. Retrieved 16 July 2014</ref> Survivors of the accident included a train-driving instructor (Andrew Hill), who was travelling in the cab of 66521 and teaching a new route to the driver of the Class 66, a driver with 24 years of experience.
+
+Those killed were:
+*John Weddle, from [[Throckley]] - GNER driver
+*Stephen Dunn, from [[Brayton, North Yorkshire|Brayton]] - Freightliner driver
+*Raymond Robson, from [[Whitley Bay]] - GNER train guard
+*Paul Taylor, from [[Newcastle upon Tyne|Newcastle]] - GNER chef
+*Alan Ensor, from [[York]]
+*Clive Vidgen, from York
+*Barry Needham, from York
+*Steve Baldwin,<ref>[http://www.timeshighereducation.co.uk/story.asp?storyCode=157858&sectioncode=26 "Tribute to Steve Baldwin"], ''[[Times Higher Education|Times Higher Education Supplement]]'', 9 March 2001. Retrieved 24 February 2014</ref> from York
+*Christopher Terry, from York
+*Robert Shakespeare, from [[Beverley, Yorkshire|Beverley]]
+
+The coaches of the InterCity 225 were carrying 99 passengers and train staff. The early morning 04:45 time departure from Newcastle resulted in reduced passenger numbers.  As it was, 45 of the 52 seriously injured passengers, and all eight fatalities (excluding the two locomotive drivers) were travelling in the first five coaches, which included a restaurant car and two first class coaches with less densely packed seating than standard coaches.  The official incident report praised the crashworthiness of the InterCity 225's [[British Rail Mark 4|Mark 4]] coaches.
+
+Hart escaped the collision unscathed. He claimed that his car had suffered a mechanical fault, or had collided with an object on the road. An investigation, including reconstruction of the Land Rover to demonstrate that it was not mechanically defective, concluded that Hart had been driving in a [[sleep deprivation|sleep-deprived]] condition, and had not applied the brakes as it went down the embankment. It later transpired that Hart had stayed up the previous night talking on the telephone to a woman he had met via an [[Internet dating]] agency.<ref>{{cite news
+| title      = Crash driver's marathon phone chats
+| publisher  = BBC
+| date       = 13 December 2001
+| url        = http://news.bbc.co.uk/1/hi/england/1704519.stm
+| accessdate = 25 August 2008}}</ref>
+Hart later stated that although he had witnessed the impact between the InterCity 225 and his Land Rover, he had not been aware of the more serious collision with the freight train until informed by police several hours later.<ref>{{cite news
+| title      = Selby driver tells of death threats
+| publisher  = BBC
+| date       = 6 December 2001
+| url        = http://news.bbc.co.uk/1/hi/england/1695267.stm
+| accessdate = 26 April 2010}}</ref>
+
+Coincidentally, 91023 was also involved in the [[Hatfield rail crash]] four months earlier. The locomotive escaped with only slight damage on both occasions. Following technical upgrade of the Class 91 fleet, which led to all locomotives having 100 added to the number (91001 became 91101, etc.), 91023 was renumbered 91132, not 91123.
+
+An unusual aspect of the emergency response was the need to carry out disinfecting procedures at the scene owing to the [[2001 UK foot and mouth crisis]] in the United Kingdom at the time of the incident.
+
+==Aftermath==
+[[File:Memorial garden, Great Heck - geograph.org.uk - 434729.jpg|thumb|right|A memorial to the Great Heck rail disaster]]
+Hart was tried on ten counts of [[causing death by dangerous driving]]. On 13 December 2001 he was found guilty, and sentenced to five years' imprisonment.
+
+Campaigners have drawn attention to what they claim is the inadequate length of the crash barriers alongside the road. According to the [[Health and Safety Executive]]'s final report, the Land Rover had left the road some 30 yards before the barrier started, and had easily broken through the simple wooden fence that lined the track. A 2003 [[Highways Agency]] review of crash barriers on bridges over railways concluded that only three bridges nationwide were in need of upgrading. The bridge at Great Heck was not one of them. By October 2003 Hart's insurers had paid out over £22 million. Gary Hart's [[subrogation|insurers, through Hart's name]], sued the [[Department for Transport]] for a contribution to the damages they were liable to pay to GNER and the victims, on the grounds that the safety barrier was inadequate, and legal ground of contributory negligence, but the case was dismissed.<ref>{{cite court
+| litigants = GNER v Hart
+| vol       = <nowiki>[2003]</nowiki>
+| reporter  = EWHC
+| opinion   = 2450 (QB)
+| date      = 30 October 2003
+| url       = http://www.bailii.org/ew/cases/EWHC/QB/2003/2450.html}}</ref>
+
+Locomotive No. 66526 has since been named "Driver Steve Dunn (George)", in memory of the Freightliner driver killed in the accident. It carries a plaque commemorating the accident - "In remembrance of a dedicated engineman Driver Steve (George) Dunn tragically killed in the accident at Great Heck on 28th February 2001".<ref>[http://www.therailwaycentre.com/Nemeplates/D.html The Encyclopaedia of Modern Traction Names]</ref> Dunn's son James - who was nine at the time of the crash - later became a train driver himself.<ref>{{cite news|url=http://www.yorkpress.co.uk/news/8880145.Courage_of_families_praised_at_Great_Heck_memorial_service/  |title=Courage of families praised at Great Heck memorial service|work=The York Press|date=28 February 2011|accessdate=4 March 2015}}</ref>
+
+John Weddle, the GNER driver killed in the accident was also honoured by way of a new driver training school in his home city of Newcastle which was named after him. In a ceremony attended by members of his family his 16-year-old daughter Stephanie unveiled a plaque dedicating the school to his memory.<ref>
+{{cite news|url=http://news.bbc.co.uk/1/hi/england/2119335.stm |title=Selby rail driver honoured|date=10 July 2002|accessdate=4 March 2015|work=BBC News}}</ref>
+
+Barry Needham, also a railway employee, was also commemorated by the naming of 60087 after him, the plates later being transferred to 60091. This locomotive also carries an explanatory plaque.
+
+==See also==
+*[[List of rail accidents in the United Kingdom]]
+*[[Polmont rail accident|Polmont rail crash]] – a similar accident where a train propelled from the rear by a locomotive struck an object on the railway
+*[[Hatfield rail crash]] – an earlier accident also involving an InterCity 225 powered by 91023
+*[[Oxshott rail crash]] – a concrete mixer lorry fell from a bridge onto a train
+*[[2005 Glendale train crash]] – a later event also involving a car on the track and collisions with other trains
+
+==References==
+{{reflist|2}}
+
+==External links==
+*[http://news.bbc.co.uk/1/hi/in_depth/uk/2001/selby_train_crash/default.stm BBC News reports on the crash and its aftermath]
+*[http://www.rail-reg.gov.uk/server/show/nav.1202  Office of Rail Regulation] - downloadable reports
+*[http://www.highways.gov.uk/aboutus/10857.htm Highways Agency] - crash report
+* [http://www.truenorthproductions.co.uk/Programmes/Current+Affairs/Asleep+at+the+Wheel.htm ONE life: Asleep at the Wheel] at [[True North Productions]]
+
+{{2001 railway accidents}}
+
+{{DEFAULTSORT:Great Heck Rail Crash}}
+[[Category:Railway accidents in Yorkshire]]
+[[Category:History of Yorkshire]]
+[[Category:Rail transport in North Yorkshire]]
+[[Category:Transport disasters in Yorkshire]]
+[[Category:2001 disasters in the United Kingdom]]
+[[Category:2001 in England]]
+[[Category:21st century in North Yorkshire]]
+[[Category:Railway accidents in 2001]]
+[[Category:Selby (district)]]
+[[Category:East Coast Main Line]]
+[[Category:Accidents and incidents involving Great North Eastern Railway]]
+
