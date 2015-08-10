@@ -19,6 +19,7 @@ import java.io.FileInputStream;
 import java.io.InputStream;
 import java.util.List;
 import java.util.Map;
+import java.util.StringTokenizer;
 import java.util.TreeMap;
 
 import javax.xml.parsers.DocumentBuilder;
@@ -28,10 +29,13 @@ import org.apache.commons.cli.CommandLine;
 import org.apache.commons.cli.CommandLineParser;
 import org.apache.commons.cli.GnuParser;
 import org.apache.commons.cli.Options;
+import org.apache.commons.collections4.Bag;
+import org.apache.commons.collections4.bag.HashBag;
 import org.apache.commons.io.FileUtils;
 import org.apache.thrift.protocol.TBinaryProtocol;
 import org.apache.thrift.transport.TIOStreamTransport;
 import org.apache.thrift.transport.TTransport;
+import org.apache.thrift.transport.TTransportException;
 import org.tukaani.xz.XZInputStream;
 import org.w3c.dom.Document;
 import org.w3c.dom.Node;
@@ -72,13 +76,16 @@ public class RunQuery
             FeatureVector query = queries.get(queryId);
             
             Pairtree ptree = new Pairtree();
+            Bag<String> words = new HashBag<String>();
 
             for (String streamId: ids) 
             {
                 
                 String ppath = ptree.mapToPPath(streamId.replace("-", ""));
                                 
-                File infile = new File(inputPath + File.separator + queryId + File.separator + ppath + File.separator + streamId + ".xz");
+                String inpath = inputPath + File.separator + ppath + File.separator + streamId + ".xz";
+//                System.out.println(inpath);
+                File infile = new File(inpath);
                 InputStream in = new XZInputStream(new FileInputStream(infile));
                 
                 TTransport inTransport = 
@@ -86,13 +93,35 @@ public class RunQuery
                 TBinaryProtocol inProtocol = new TBinaryProtocol(inTransport);
                 inTransport.open();
                 final StreamItem item = new StreamItem();
+
+                while (true)
+                {
+                    try {
+                        item.read(inProtocol);
+//                        System.out.println("Read " + item.stream_id);
+
+                    } catch (TTransportException tte) {
+                        // END_OF_FILE is used to indicate EOF and is not an exception.
+                        if (tte.getType() != TTransportException.END_OF_FILE) 
+                            tte.printStackTrace();
+                        break;
+                    }
+                }
                 
                 // Do something with this document...
+                String docText = item.getBody().getClean_visible();
+
+                StringTokenizer itr = new StringTokenizer(docText);
+                while (itr.hasMoreTokens()) {
+                    words.add(itr.nextToken());
+                }
                 
-                item.read(inProtocol);
-                System.out.println("Read " + item.stream_id);
                 inTransport.close();
                 
+            }
+            
+            for (String term: words.uniqueSet()) {
+                System.out.println(term + ":" + words.getCount(term));
             }
 	    
     	} catch (Exception e) {
