@@ -34,8 +34,6 @@ import org.apache.hadoop.hbase.client.Result;
 import org.apache.hadoop.hbase.client.ResultScanner;
 import org.apache.hadoop.hbase.client.Scan;
 import org.apache.hadoop.hbase.client.Table;
-import org.apache.hadoop.hbase.filter.Filter;
-import org.apache.hadoop.hbase.filter.PrefixFilter;
 import org.apache.hadoop.hbase.util.Bytes;
 import org.apache.thrift.TDeserializer;
 import org.apache.thrift.protocol.TBinaryProtocol;
@@ -65,6 +63,7 @@ public class ThriftRMScorerHbase extends TSBase
     TDeserializer deserializer;
     String tableName;
     int queryId;
+    int scanSize;
     
     public static void main(String[] args) throws Exception 
     {
@@ -74,23 +73,27 @@ public class ThriftRMScorerHbase extends TSBase
         String outputPath = args[3];        
         String stoplist = args[4];
         int queryId = Integer.parseInt(args[5]);
+        int scanSize = Integer.parseInt(args[6]);
         
         ThriftRMScorerHbase scorer = new ThriftRMScorerHbase(tableName, topicsFile, vocabFile,
-                outputPath, stoplist, queryId);
+                outputPath, stoplist, queryId, scanSize);
         scorer.doit();
     }
     
     public ThriftRMScorerHbase(String tableName, String topicsFile, String vocabFile, String
-            outputPath, String stoplist, int queryId) throws Exception
+            outputPath, String stoplist, int queryId, int scanSize) throws Exception
     {
         
         this.tableName = tableName;
         this.queryId = queryId;
         queries = readEvents(topicsFile, null);
         vocab = readVocab(vocabFile, null);
-        stopper = readStoplist(stoplist, null);                        
+        stopper = readStoplist(stoplist, null); 
+        this.scanSize = scanSize;
 
         config = HBaseConfiguration.create();
+        int timeout = 60000*20;
+        config.set("hbase.rpc.timeout", String.valueOf(timeout));
         connection = ConnectionFactory.createConnection(config);
 
         table = connection.getTable(TableName.valueOf(tableName));
@@ -103,54 +106,79 @@ public class ThriftRMScorerHbase extends TSBase
         
         String queryStr = String.format("%02d", queryId);
 
-        System.err.println("Scanning table " + tableName + " for query " + queryStr);
-        Scan s = new Scan();
+//        System.err.println("Scanning table " + tableName + " for query " + queryStr);
+//        Scan s = new Scan();
+   
+//       Scan scan = new Scan(Bytes.toBytes("a.b.x|1"),Bytes.toBytes("a.b.x|2"));
+
+//        s.setCaching(scanSize);
+//        s.setLoadColumnFamiliesOnDemand(true);
+//        s.setBatch(scanSize);
 //        s.addColumn(Bytes.toBytes("md"), Bytes.toBytes("query"));
         
-        Filter prefixFilter = new PrefixFilter(Bytes.toBytes(queryStr));
-        s.setFilter(prefixFilter);
+//        Filter prefixFilter = new PrefixFilter(Bytes.toBytes(queryStr));
+//        s.setFilter(prefixFilter);
 
-        ResultScanner scanner = table.getScanner(s);
-        
+//        ResultScanner scanner = table.getScanner(s);
+
         FeatureVector qv = queries.get(queryId);
         
         TDeserializer deserializer = new TDeserializer(new TBinaryProtocol.Factory());
 
         Map<String, FeatureVector> docVectors = new HashMap<String, FeatureVector>();
         List<DocScore> docScores = new ArrayList<DocScore>();
-        try {
-            
-            System.err.println("Scoring streamitems");
-            int i=0;
-            for (Result rr = scanner.next(); rr != null; rr = scanner.next()) {
-                
-                String rowkey = Bytes.toString(rr.getRow());
-
-                StreamItemWritable item = new StreamItemWritable();
-
-                if (i % 1000 == 0)                     
-                    System.err.print(".");
-                try {
-                    deserializer.deserialize(item, rr.getValue(Bytes.toBytes("si"), Bytes.toBytes("streamitem")));
-                    String docText = item.getBody().getClean_visible();
-
-                    FeatureVector dv = new FeatureVector(docText, stopper);
-                    docVectors.put(rowkey, dv);
-                    double score = kl(qv, dv, vocab, MU);
-                    
-                    DocScore ds = new DocScore(rowkey, score);
-                    docScores.add(ds);
-                    i++;
-                }
-                catch (Exception e) {
-                    e.printStackTrace();
-                }                
-            }
-
-          } finally {
-            scanner.close();
-          }
         
+        System.err.println("Scoring streamitems");
+        
+        for (int bin=0; bin<3000; bin+=scanSize)
+        {
+            String startBin = queryStr + String.format("%04d", bin);
+            String endBin = queryStr + String.format("%04d", bin +scanSize);
+            
+            System.err.println("\nScanning table " + tableName + " for rows " + startBin + "-" + endBin);
+            
+            Scan scan = new Scan(Bytes.toBytes(startBin),Bytes.toBytes(endBin));
+
+            ResultScanner scanner = table.getScanner(scan);
+            try 
+            {
+                
+                int i=0;
+                //for (Result[] rrs = scanner.next(scanSize); rrs != null; rrs = scanner.next(scanSize)) 
+                for (Result rr = scanner.next(); rr != null; rr = scanner.next()) 
+                {
+                    
+                    //for (Result rr: rrs) {
+                        String rowkey = Bytes.toString(rr.getRow());
+        
+                        StreamItemWritable item = new StreamItemWritable();
+                        
+                        if (i % 1000 == 0)
+                            System.err.print(".");
+                        try     
+                        {
+                            deserializer.deserialize(item, rr.getValue(Bytes.toBytes("si"), Bytes.toBytes("streamitem")));
+                            String docText = item.getBody().getClean_visible();
+        
+                            FeatureVector dv = new FeatureVector(docText, stopper);
+                            docVectors.put(rowkey, dv);
+                            double score = kl(qv, dv, vocab, MU);
+                            
+                            DocScore ds = new DocScore(rowkey, score);
+                            docScores.add(ds);
+                            i++;
+                        }
+                        catch (Exception e) {
+                            e.printStackTrace();
+                        }  
+                    //}
+                }
+    
+              } finally {
+                scanner.close();
+              }
+        }
+            
         System.err.println("Sorting");
         Collections.sort(docScores, new DocScoreComparator());
                     

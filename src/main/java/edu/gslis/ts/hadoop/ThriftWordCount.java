@@ -18,7 +18,6 @@ import java.util.StringTokenizer;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
-import org.apache.hadoop.hbase.HBaseConfiguration;
 import org.apache.hadoop.io.IntWritable;
 import org.apache.hadoop.io.Text;
 import org.apache.hadoop.mapreduce.Job;
@@ -83,8 +82,7 @@ public class ThriftWordCount extends TSBase implements Tool {
         String inputPath = args[0];
         Path outputPath = new Path(args[1]);
 
-        Configuration config = HBaseConfiguration.create(getConf());
-        Job job = Job.getInstance(config);
+        Job job = Job.getInstance(getConf());
         job.setJarByClass(ThriftWordCount.class);
         job.setInputFormatClass(ThriftFileInputFormat.class);
         job.setOutputKeyClass(Text.class);

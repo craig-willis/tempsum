@@ -52,6 +52,7 @@ import org.apache.hadoop.util.ToolRunner;
 import org.apache.thrift.TDeserializer;
 import org.apache.thrift.protocol.TBinaryProtocol;
 
+import edu.gslis.searchhits.SearchHit;
 import edu.gslis.streamcorpus.StreamItemWritable;
 import edu.gslis.textrepresentation.FeatureVector;
 import edu.gslis.utils.Stopper;
@@ -66,6 +67,7 @@ public class ThriftRMScorerHbaseMR extends TSBase implements Tool {
     static int numFbDocs = 20;
     static int numFbTerms = 20;
     static double rmLambda = 0.5;
+    static int numDocs = 1000;
     
     public static class ThriftTableMapper extends TableMapper<IntWritable, Text> 
     {
@@ -110,11 +112,29 @@ public class ThriftRMScorerHbaseMR extends TSBase implements Tool {
             
             outputKey.set(queryId);
             outputValue.set(rowkey + "," + docScore);
-
             context.write(outputKey, outputValue);
 
         }       
 
+        
+        public static double maxest (FeatureVector qv, FeatureVector dv, Map<String, Double> vocab, double mu) 
+        {
+            double ll = 0;
+ 
+            double dl = dv.getLength();
+            
+            for (String q: qv.getFeatures()) {
+                double tf = 1;
+                if (vocab.get(q) != null)
+                    tf = vocab.get(q);
+                double cp = tf / vocab.get("TOTAL");
+                double pr = (1 + mu*cp) / (dl + mu);
+                ll += qv.getFeatureWeight(q) * Math.log(pr);
+            }
+            return ll;
+        }
+        
+        
         protected void setup(Context context) {
             try {
                 // Side-load the topics
@@ -174,21 +194,24 @@ public class ThriftRMScorerHbaseMR extends TSBase implements Tool {
             }        
             
             Collections.sort(docScores, new DocScoreComparator());
-                        
+                     
+            docScores = docScores.subList(0, 1000);
             FeatureVector qv = queries.get(queryId.get());
 
             FeatureVector rm = buildRM3Model(docScores, numFbDocs, numFbTerms, qv, rmLambda);
             
             List<DocScore> rmDocScores = new ArrayList<DocScore>();
 
-            for (String rowkey: rowKeys) {
+            for (DocScore ds: docScores) {
+//            for (String rowkey: rowKeys) {
                 // Stream id, score
+                String rowkey = ds.getDocId();
                 String[] keyfields = rowkey.split("\\.");
                 String streamid = keyfields[1];
                 FeatureVector dv = getDocVector(rowkey);
                 double score = kl(rm, dv, vocab, MU);
-                DocScore ds = new DocScore(streamid, score);
-                rmDocScores.add(ds);
+                DocScore rmDs = new DocScore(streamid, score);
+                rmDocScores.add(rmDs);
             }            
             
             Collections.sort(rmDocScores, new DocScoreComparator());

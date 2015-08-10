@@ -31,6 +31,7 @@ import org.apache.hadoop.hbase.client.Connection;
 import org.apache.hadoop.hbase.client.ConnectionFactory;
 import org.apache.hadoop.hbase.client.Put;
 import org.apache.hadoop.hbase.io.ImmutableBytesWritable;
+import org.apache.hadoop.hbase.io.compress.Compression;
 import org.apache.hadoop.hbase.mapreduce.HFileOutputFormat2;
 import org.apache.hadoop.hbase.util.Bytes;
 import org.apache.hadoop.io.Text;
@@ -229,6 +230,13 @@ public class ThriftBulkLoader extends TSBase implements Tool
         job.addCacheFile(topicsFile.toUri());
         job.addCacheFile(vocabFile.toUri());
         job.addCacheFile(dateBinFile.toUri());
+        
+        job.getConfiguration().setBoolean("mapreduce.map.output.compress", true);
+        job.getConfiguration().setClass("mapred.map.output.compression.codec",
+            org.apache.hadoop.io.compress.SnappyCodec.class,
+            org.apache.hadoop.io.compress.CompressionCodec.class);
+        job.getConfiguration().set("hfile.compression",
+            Compression.Algorithm.SNAPPY.getName());
         
         //RegionLocator regionLocator = conn.getRegionLocator(tableName);
         //HFileOutputFormat2.configureIncrementalLoad(job, new HTable(config,tableName));
